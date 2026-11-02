@@ -1,0 +1,38 @@
+{
+  "id": "notif-overnight-agent",
+  "template": "notifications",
+  "hook": "my phone after letting the agent run *overnight*",
+  "duration_s": 13,
+  "loop": false,
+  "accent": "cyan",
+  "data": {
+    "time": "7:02",
+    "date": "Wednesday 5 November",
+    "items": [
+      { "app": "GitHub", "icon": "🐙", "title": "agent-bot pushed 214 commits", "body": "feat: improve everything (pt. 214)", "ago": "6h ago", "tone": "normal" },
+      { "app": "Slack", "icon": "💬", "title": "#incidents", "body": "who deployed to prod at 3am??", "ago": "4h ago", "tone": "warn" },
+      { "app": "AWS", "icon": "☁️", "title": "Billing alert", "body": "Your estimated bill is $8,412.19", "ago": "2h ago", "tone": "bad" },
+      { "app": "Agent", "icon": "🤖", "title": "Task complete ✅", "body": "I fixed the typo you mentioned!", "ago": "now", "tone": "good" }
+    ]
+  },
+  "features": {
+    "hook_type": "story",
+    "topic": "coding-agents",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "12:05",
+    "series": "agent-diaries"
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "the typo is fixed though, so net positive",
+        "hashtags": ["#aiagents", "#claudecode", "#devops", "#programmerhumor"],
+        "question": "What's the worst thing you've woken up to after a night of agents?"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "explore", "hypothesis": "Story-style notification reels get more shares per reach than chat reels" },
+  "source": "example"
+}

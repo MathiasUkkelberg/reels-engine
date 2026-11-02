@@ -1,0 +1,15 @@
+.tpl-progress .wrap { position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; }
+.tpl-progress .lbl { font-weight: 800; font-size: 62px; line-height: 1.1; letter-spacing: -0.015em; margin-bottom: 30px; }
+.tpl-progress .pct { font-family: var(--font-sans); font-weight: 900; font-size: 250px; line-height: 1; letter-spacing: -0.04em; color: var(--accent); font-variant-numeric: tabular-nums; }
+.tpl-progress .track { position: relative; height: 84px; border-radius: 42px; background: var(--panel); border: 3px solid var(--line); overflow: hidden; margin-top: 26px; }
+.tpl-progress .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 42px; background: var(--accent);
+  background-image: repeating-linear-gradient(-45deg, rgba(255,255,255,.18) 0 22px, transparent 22px 44px); background-size: 62px 62px; }
+.tpl-progress .status { position: relative; height: 150px; margin-top: 30px; }
+.tpl-progress .st { position: absolute; left: 0; right: 0; top: 0; font-weight: 600; font-size: 50px; line-height: 1.15; color: var(--fg-dim); }
+.tpl-progress .st::before { content: '› '; color: var(--accent); font-family: var(--font-mono); }
+.tpl-progress .twist { position: absolute; left: 0; right: 0; bottom: 0; border-radius: 28px; padding: 30px 34px; text-align: center; }
+.tpl-progress .twist.error { background: var(--red); color: #fff; }
+.tpl-progress .twist.reset { background: var(--amber); color: #1a1000; }
+.tpl-progress .twist.success { background: var(--green); color: #03140b; }
+.tpl-progress .tw-t { font-weight: 900; font-size: 64px; line-height: 1.08; letter-spacing: -0.01em; }
+.tpl-progress .tw-s { font-weight: 700; font-size: 42px; line-height: 1.2; margin-top: 12px; opacity: .9; }

@@ -1,0 +1,42 @@
+{
+  "id": "countdown-fix-a-bug",
+  "template": "countdown",
+  "hook": "4 stages of asking AI to fix *one* bug",
+  "duration_s": 13,
+  "loop": false,
+  "accent": "green",
+  "data": {
+    "direction": "up",
+    "items": [
+      { "text": "\"it's a simple fix\"", "sub": "pastes the error message", "emoji": "🙂" },
+      { "text": "\"ok try something else\"", "sub": "pastes the same error again", "emoji": "😐" },
+      { "text": "\"please just revert it\"", "sub": "it reverts the wrong file", "emoji": "😩" },
+      { "text": "\"You've reached your usage limit\"", "sub": "resets in 4 hours", "emoji": "💀" }
+    ]
+  },
+  "features": {
+    "hook_type": "list",
+    "topic": "rate-limits",
+    "humor_style": "relatable",
+    "has_twist": true,
+    "planned_post_time": "19:35",
+    "series": null
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "stage 5 is going outside (temporarily)",
+        "hashtags": ["#claudecode", "#aicoding", "#vibecoding", "#programmerhumor"],
+        "question": "Which stage are you in right now?"
+      },
+      {
+        "hook_line": "the real bug was the friends we rate-limited along the way",
+        "hashtags": ["#aihumor", "#devlife", "#codingmemes"],
+        "question": "How fast do you hit your limit on a bad day?"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "exploit", "based_on": "prior: numbered lists + relatable pain + twist" },
+  "source": "example"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "dialogue-honest-feedback",
+  "template": "dialogue",
+  "hook": "asking AI for *brutally honest* feedback",
+  "duration_s": 14,
+  "loop": false,
+  "accent": "coral",
+  "data": {
+    "characters": [
+      { "name": "me", "color": "cyan", "kind": "human" },
+      { "name": "AI", "color": "coral", "kind": "bot" }
+    ],
+    "lines": [
+      { "who": 0, "text": "be brutally honest. is my code good?", "mood": "neutral" },
+      { "who": 1, "text": "Honestly? It's exceptional, production-ready code ✨", "mood": "happy" },
+      { "who": 0, "text": "it prints \"banana\" 400 times", "mood": "smug" },
+      { "who": 1, "text": "And the banana printing scales *beautifully*!", "mood": "happy" },
+      { "who": 0, "text": "…", "mood": "dead" }
+    ]
+  },
+  "features": {
+    "hook_type": "relatable_pain",
+    "topic": "sycophancy",
+    "humor_style": "deadpan",
+    "has_twist": true,
+    "planned_post_time": "12:05",
+    "series": null
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "my code reviewer has never once disagreed with me and that's the problem",
+        "hashtags": ["#aihumor", "#claudeai", "#chatgpt", "#programmerhumor"],
+        "question": "Has an AI ever actually told you your idea was bad?"
+      },
+      {
+        "hook_line": "\"brutally honest\" mode: still on the default setting (flattery)",
+        "hashtags": ["#llm", "#aitools", "#codingmemes"],
+        "question": "Drop the most unearned compliment an AI gave you"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "explore", "hypothesis": "Sycophancy jokes get more comments than coding-agent jokes" },
+  "source": "example"
+}
