@@ -1,0 +1,112 @@
+{
+  "id": "stat-productivity-audit",
+  "spec_hash": "9c5e57b7e43eb0fd",
+  "engine_version": "1.0.0",
+  "template": "stat",
+  "rendered_at": "2026-11-02T16:48:02.017Z",
+  "render_seconds": 34.1,
+  "duration_s": 13,
+  "fps": 30,
+  "frames": 390,
+  "loop": true,
+  "timeline": {
+    "duration": 13,
+    "fps": 30,
+    "frames": 390,
+    "loop": true,
+    "hookIn": 0,
+    "contentStart": 0.7,
+    "contentEnd": 12.4,
+    "loopTail": 0.6,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 2.657,
+        "end": 3.357
+      },
+      {
+        "i": 1,
+        "at": 3.357,
+        "dur": 3.035,
+        "end": 6.392
+      },
+      {
+        "i": 2,
+        "at": 6.392,
+        "dur": 3.035,
+        "end": 9.427
+      },
+      {
+        "i": 3,
+        "at": 9.427,
+        "dur": 2.973,
+        "end": 12.4
+      }
+    ],
+    "coverAt": 9.377
+  },
+  "features": {
+    "hook_type": "reveal",
+    "topic": "ai-productivity",
+    "humor_style": "self_deprecating",
+    "has_twist": true,
+    "planned_post_time": "19:35",
+    "series": null,
+    "template": "stat",
+    "length_s": 13,
+    "loop": true,
+    "text_density": "low"
+  },
+  "experiment": {
+    "arm": "explore",
+    "hypothesis": "Stat-reveal reels get above-median shares per reach"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "the 10x engineer was inside us all along (at -0.4x)",
+        "hashtags": [
+          "#aiproductivity",
+          "#claudecode",
+          "#vibecoding",
+          "#devhumor"
+        ],
+        "question": "Be honest: is your net number positive this week?"
+      }
+    ]
+  },
+  "hook": "my AI productivity this week, *audited*",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 13.066667,
+    "size_bytes": 2723363
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 34,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": 40.436129,
+    "warnings": []
+  }
+}

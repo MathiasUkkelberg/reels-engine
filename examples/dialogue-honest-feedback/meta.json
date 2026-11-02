@@ -1,0 +1,127 @@
+{
+  "id": "dialogue-honest-feedback",
+  "spec_hash": "6c27d92cbff629ea",
+  "engine_version": "1.0.0",
+  "template": "dialogue",
+  "rendered_at": "2026-11-02T16:43:49.110Z",
+  "render_seconds": 32.1,
+  "duration_s": 14,
+  "fps": 30,
+  "frames": 420,
+  "loop": false,
+  "timeline": {
+    "duration": 14,
+    "fps": 30,
+    "frames": 420,
+    "loop": false,
+    "hookIn": 0.25,
+    "contentStart": 0.7,
+    "contentEnd": 14,
+    "loopTail": 0,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 2.691,
+        "end": 3.391
+      },
+      {
+        "i": 1,
+        "at": 3.391,
+        "dur": 3.309,
+        "end": 6.7
+      },
+      {
+        "i": 2,
+        "at": 6.7,
+        "dur": 2.362,
+        "end": 9.062
+      },
+      {
+        "i": 3,
+        "at": 9.062,
+        "dur": 3.062,
+        "end": 12.124
+      },
+      {
+        "i": 4,
+        "at": 12.124,
+        "dur": 1.876,
+        "end": 14
+      }
+    ],
+    "coverAt": 12.074
+  },
+  "features": {
+    "hook_type": "relatable_pain",
+    "topic": "sycophancy",
+    "humor_style": "deadpan",
+    "has_twist": true,
+    "planned_post_time": "12:05",
+    "series": null,
+    "template": "dialogue",
+    "length_s": 14,
+    "loop": false,
+    "text_density": "low"
+  },
+  "experiment": {
+    "arm": "explore",
+    "hypothesis": "Sycophancy jokes get more comments than coding-agent jokes"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "my code reviewer has never once disagreed with me and that's the problem",
+        "hashtags": [
+          "#aihumor",
+          "#claudeai",
+          "#chatgpt",
+          "#programmerhumor"
+        ],
+        "question": "Has an AI ever actually told you your idea was bad?"
+      },
+      {
+        "hook_line": "\"brutally honest\" mode: still on the default setting (flattery)",
+        "hashtags": [
+          "#llm",
+          "#aitools",
+          "#codingmemes"
+        ],
+        "question": "Drop the most unearned compliment an AI gave you"
+      }
+    ]
+  },
+  "hook": "asking AI for *brutally honest* feedback",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 14.066667,
+    "size_bytes": 2791690
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 34,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": null,
+    "warnings": []
+  }
+}

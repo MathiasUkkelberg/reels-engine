@@ -1,0 +1,133 @@
+{
+  "id": "progress-context-limit",
+  "spec_hash": "260f84f68833bbf4",
+  "engine_version": "1.0.0",
+  "template": "progress",
+  "rendered_at": "2026-11-02T16:47:27.740Z",
+  "render_seconds": 36.2,
+  "duration_s": 14,
+  "fps": 30,
+  "frames": 420,
+  "loop": false,
+  "timeline": {
+    "duration": 14,
+    "fps": 30,
+    "frames": 420,
+    "loop": false,
+    "hookIn": 0.25,
+    "contentStart": 0.7,
+    "contentEnd": 14,
+    "loopTail": 0,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 1.337,
+        "end": 2.037
+      },
+      {
+        "i": 1,
+        "at": 2.037,
+        "dur": 1.51,
+        "end": 3.547
+      },
+      {
+        "i": 2,
+        "at": 3.547,
+        "dur": 1.337,
+        "end": 4.885
+      },
+      {
+        "i": 3,
+        "at": 4.885,
+        "dur": 1.625,
+        "end": 6.51
+      },
+      {
+        "i": 4,
+        "at": 6.51,
+        "dur": 2.118,
+        "end": 8.629
+      },
+      {
+        "i": 5,
+        "at": 8.629,
+        "dur": 5.371,
+        "end": 14
+      }
+    ],
+    "coverAt": 8.579
+  },
+  "features": {
+    "hook_type": "relatable_pain",
+    "topic": "context-window",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "21:50",
+    "series": "agent-diaries",
+    "template": "progress",
+    "length_s": 14,
+    "loop": false,
+    "text_density": "low"
+  },
+  "experiment": {
+    "arm": "exploit",
+    "based_on": "prior: twist endings + relatable pain"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "99% done and then it meets me for the first time again",
+        "hashtags": [
+          "#claudecode",
+          "#aiagents",
+          "#programmerhumor",
+          "#vibecoding"
+        ],
+        "question": "How far did your agent get before it forgot everything?"
+      },
+      {
+        "hook_line": "the 1% is where the context window ends",
+        "hashtags": [
+          "#aicoding",
+          "#llm",
+          "#devhumor"
+        ],
+        "question": "Send this to someone who's been at 99% since lunch"
+      }
+    ]
+  },
+  "hook": "watching the agent fix *one* bug",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 14.066667,
+    "size_bytes": 2996023
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 42,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "id": "pov-one-last-change",
+  "spec_hash": "425101887589b85d",
+  "engine_version": "1.0.0",
+  "template": "pov",
+  "rendered_at": "2026-11-02T16:46:51.369Z",
+  "render_seconds": 38.8,
+  "duration_s": 14,
+  "fps": 30,
+  "frames": 420,
+  "loop": false,
+  "timeline": {
+    "duration": 14,
+    "fps": 30,
+    "frames": 420,
+    "loop": false,
+    "hookIn": 0.25,
+    "contentStart": 0.7,
+    "contentEnd": 14,
+    "loopTail": 0,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 2.193,
+        "end": 2.893
+      },
+      {
+        "i": 1,
+        "at": 2.893,
+        "dur": 1.902,
+        "end": 4.795
+      },
+      {
+        "i": 2,
+        "at": 4.795,
+        "dur": 2.157,
+        "end": 6.952
+      },
+      {
+        "i": 3,
+        "at": 6.952,
+        "dur": 2.483,
+        "end": 9.435
+      },
+      {
+        "i": 4,
+        "at": 9.435,
+        "dur": 4.565,
+        "end": 14
+      }
+    ],
+    "coverAt": 9.385
+  },
+  "features": {
+    "hook_type": "pov",
+    "topic": "coding-agents",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "21:50",
+    "series": null,
+    "template": "pov",
+    "length_s": 14,
+    "loop": false,
+    "text_density": "medium"
+  },
+  "experiment": {
+    "arm": "exploit",
+    "based_on": "prior: POV + relatable late-night pain"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "\"one last change\" is the AI equivalent of \"5 more minutes\"",
+        "hashtags": [
+          "#vibecoding",
+          "#claudecode",
+          "#programmerhumor",
+          "#latenightcoding"
+        ],
+        "question": "What time did you finally close the laptop last night?"
+      },
+      {
+        "hook_line": "the tests were the problem all along apparently",
+        "hashtags": [
+          "#aicoding",
+          "#devhumor",
+          "#cursorai"
+        ],
+        "question": "Has your AI ever deleted tests to make them pass?"
+      }
+    ]
+  },
+  "hook": "POV: it's 2am and the AI says *\"one last change\"*",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 14.066667,
+    "size_bytes": 3011790
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 38,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": null,
+    "warnings": []
+  }
+}

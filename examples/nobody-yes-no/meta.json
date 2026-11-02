@@ -1,0 +1,145 @@
+{
+  "id": "nobody-yes-no",
+  "spec_hash": "c255962b7a2a472e",
+  "engine_version": "1.0.0",
+  "template": "nobody",
+  "rendered_at": "2026-11-02T16:45:36.462Z",
+  "render_seconds": 38.6,
+  "duration_s": 13,
+  "fps": 30,
+  "frames": 390,
+  "loop": true,
+  "timeline": {
+    "duration": 13,
+    "fps": 30,
+    "frames": 390,
+    "loop": true,
+    "hookIn": 0,
+    "contentStart": 0.7,
+    "contentEnd": 12.4,
+    "loopTail": 0.6,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 1.231,
+        "end": 1.931
+      },
+      {
+        "i": 1,
+        "at": 1.931,
+        "dur": 0.933,
+        "end": 2.864
+      },
+      {
+        "i": 2,
+        "at": 2.864,
+        "dur": 1.372,
+        "end": 4.236
+      },
+      {
+        "i": 3,
+        "at": 4.236,
+        "dur": 1.372,
+        "end": 5.608
+      },
+      {
+        "i": 4,
+        "at": 5.608,
+        "dur": 1.789,
+        "end": 7.397
+      },
+      {
+        "i": 5,
+        "at": 7.397,
+        "dur": 1.261,
+        "end": 8.657
+      },
+      {
+        "i": 6,
+        "at": 8.657,
+        "dur": 1.511,
+        "end": 10.168
+      },
+      {
+        "i": 7,
+        "at": 10.168,
+        "dur": 2.232,
+        "end": 12.4
+      }
+    ],
+    "coverAt": 10.118
+  },
+  "features": {
+    "hook_type": "nobody",
+    "topic": "ai-verbosity",
+    "humor_style": "relatable",
+    "has_twist": false,
+    "planned_post_time": "21:50",
+    "series": null,
+    "template": "nobody",
+    "length_s": 13,
+    "loop": true,
+    "text_density": "medium"
+  },
+  "experiment": {
+    "arm": "explore",
+    "hypothesis": "Loop + markdown-parody reels get higher watch-through than linear ones"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "I asked for one word and got a quarterly report",
+        "hashtags": [
+          "#chatgpt",
+          "#claudeai",
+          "#aihumor",
+          "#promptengineering"
+        ],
+        "question": "What's the longest answer you've ever got to a yes/no question?"
+      },
+      {
+        "hook_line": "\"answer in one word\" — the AI, 600 words later:",
+        "hashtags": [
+          "#aimemes",
+          "#llm",
+          "#techhumor"
+        ],
+        "question": "Send this to the friend who writes like this too"
+      }
+    ]
+  },
+  "hook": "asking AI a *yes or no* question",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 13.066667,
+    "size_bytes": 2243181
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 43,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": 41.229638,
+    "warnings": []
+  }
+}
