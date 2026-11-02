@@ -26,8 +26,8 @@ Reel.register('expectation_reality', {
         apply(s);
       }
     };
-    const half = (height - gap) / 2;
-    fitPanel(E, half);
+    // Reality is the punchline: it gets the bigger share of the screen.
+    fitPanel(E, (height - gap) * 0.42);
     fitPanel(Q, height - E.box.getBoundingClientRect().height - gap);
     Q.box.style.top = E.box.getBoundingClientRect().height + gap + 'px';
 

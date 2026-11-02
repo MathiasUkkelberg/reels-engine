@@ -69,6 +69,17 @@ function thompson(feature: string, groups: GroupStat[], r: () => number): string
   return best;
 }
 
+/** Keep combos sensible: the "nobody" hook type only fits the nobody template (and vice versa). */
+function harmonize(slot: Slot, r: () => number, groups: GroupStat[], locked?: string): void {
+  if (slot.template === 'nobody' && locked !== 'hook_type') slot.hook_type = 'nobody';
+  let guard = 0;
+  while (slot.hook_type === 'nobody' && slot.template !== 'nobody' && guard++ < 20) {
+    if (locked === 'hook_type') slot.template = 'nobody';
+    else slot.hook_type = thompson('hook_type', groups, r);
+  }
+  if (slot.hook_type === 'nobody' && slot.template !== 'nobody') slot.hook_type = 'relatable_pain';
+}
+
 function slotTimes(): string[] {
   return config.schedule.slots.slice(0, config.schedule.postsPerDay);
 }
@@ -98,6 +109,7 @@ export function planBatch(count: number, insights: Insights | null, seed = Date.
       build_on: top.filter((t) => t.template === template).map((t) => `${t.id}: "${t.hook}" (${t.virality.toFixed(2)}×)`).slice(0, 2),
       note: top.length ? 'Build on what has worked: a fresh joke in a proven format.' : 'No data yet: build on the priors in the playbook.',
     });
+    harmonize(slots[slots.length - 1], r, groups);
   }
 
   // Explore: least-tested feature values first (ties broken randomly), skipping ones with solid evidence.
@@ -145,6 +157,7 @@ export function planBatch(count: number, insights: Insights | null, seed = Date.
       base.hypothesis = { id: hypothesisId(c.feature, c.value), statement, feature: c.feature, value: c.value };
       base.note = `Experiment: tests ${c.feature} = ${c.value} (${c.n} scored so far).`;
     }
+    harmonize(base, r, groups, c?.feature);
     slots.push(base);
   }
   return slots;

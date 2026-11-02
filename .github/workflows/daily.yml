@@ -1,0 +1,86 @@
+# Daily loop on GitHub Actions: sync → learn → ideas → render:batch → schedule.
+#
+# DISABLED BY DEFAULT. It only runs when triggered manually ("Run workflow") AND the repository
+# variable REELS_DAILY_ENABLED is "true" (Settings → Secrets and variables → Actions → Variables).
+# To run it every day, also uncomment the `schedule:` block below.
+#
+# Secrets (Settings → Secrets → Actions): ANTHROPIC_API_KEY, and for sync/publishing
+# IG_USER_ID, IG_ACCESS_TOKEN (+ S3_* / R2_ACCOUNT_ID / PUBLIC_BASE_URL if PUBLISHING_ENABLED=true).
+#
+# State: data/reels.db, PLAYBOOK.md, reports/ and specs/ are committed back to the branch so the
+# next run (and you) can see them. Rendered videos are uploaded as a workflow artifact (download
+# them from the run page and post them manually).
+name: daily
+
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: Number of new reel ideas
+        default: '6'
+  # schedule:
+  #   - cron: '17 6 * * *'   # every day at 06:17 UTC
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reels-daily
+  cancel-in-progress: false
+
+jobs:
+  daily:
+    if: ${{ vars.REELS_DAILY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL || 'claude-opus-5-5' }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      PUBLISHING_ENABLED: ${{ vars.PUBLISHING_ENABLED || 'false' }}
+      VIDEO_HOST: ${{ vars.VIDEO_HOST || 'r2' }}
+      PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      S3_BUCKET: ${{ vars.S3_BUCKET }}
+      S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+      S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install dependencies + Chromium
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Run daily loop
+        run: npm run daily -- --count "${{ github.event.inputs.count || '6' }}"
+
+      - name: Upload renders
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reels-${{ github.run_id }}
+          path: |
+            out/*/reel.mp4
+            out/*/cover.jpg
+            out/*/caption.txt
+            out/*/storyboard.jpg
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Commit state (DB, playbook, reports, specs)
+        run: |
+          git config user.name "reels-engine bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -f data/reels.db PLAYBOOK.md reports specs rejected
+          git diff --cached --quiet || git commit -m "daily: $(date -u +%F) [skip ci]"
+          git push

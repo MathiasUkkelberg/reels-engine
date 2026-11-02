@@ -3,8 +3,8 @@
 _Rewritten by `npm run learn` on 2026-11-02. The idea generator reads this file. Edit priors in `src/learn/priors.ts` and house rules in `src/learn/playbook.ts`; everything else comes from data._
 
 ## Status
-- Phase: **early (treat everything as hypotheses)**
-- Posted reels: 1 · scored (≥ 20h old): 1 · too young: 0
+- Phase: **bootstrap (no scored reels yet: priors only)**
+- Posted reels: 0 · scored (≥ 20h old): 0 · too young: 0
 - Virality score: 1.0 = a typical recent reel. Weighted toward shares and saves per reach, plus watch-through (see `reels.config.ts`).
 - Evidence levels: anecdote (n<3, ignored) · weak (3–9) · moderate (10–29) · solid (30+). Only intervals that exclude zero count as findings.
 
@@ -33,11 +33,10 @@ _Marked **PRIOR** until the account has moderate evidence for or against them._
 - **[PRIOR]** Use insider language of daily AI users ("you're absolutely right", context window, rate limits) to make the in-group feel seen. _(not directly measurable; keep following it)_
 
 ## Top reels so far
-- **1.00×** `stat-productivity-audit` (stat, reveal, ai-productivity): "my AI productivity this week, *audited*"
+_None scored yet._
 
 ## Formats to build on (exploit list)
 - No proven winners yet: build on priors. Strong starting formats: fake chat where the AI escalates, coding-agent terminal meltdowns, POV late-night sessions, numbered "stages of…" lists with a twist.
-- Variation candidate: `stat-productivity-audit` (stat): "my AI productivity this week, *audited*"
 
 ## House rules (always)
 - Every reel needs a hook that works in one glance (≤ 60 characters ideal) and a payoff in the final beat.

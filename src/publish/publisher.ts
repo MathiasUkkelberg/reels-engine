@@ -48,8 +48,10 @@ export async function publishReel(db: DB, id: string, opts: { client?: Instagram
     containerId = await client.createResumableReel({ caption, shareToFeed: config.publishing.shareToFeed, file: path.join(dir, 'reel.mp4') });
   } else {
     log(`Uploading video + cover (${env.videoHost})…`);
-    videoUrl = await hostFile(path.join(dir, 'reel.mp4'), `reels/${id}-${stamp}.mp4`, 'video/mp4');
-    const coverUrl = await hostFile(path.join(dir, 'cover.jpg'), `reels/${id}-${stamp}.jpg`, 'image/jpeg');
+    // static: you mirror out/ to your web host, so URLs follow out/<id>/…; r2/s3: unique keys per upload.
+    const keys = env.videoHost === 'static' ? [`${id}/reel.mp4`, `${id}/cover.jpg`] : [`reels/${id}-${stamp}.mp4`, `reels/${id}-${stamp}.jpg`];
+    videoUrl = await hostFile(path.join(dir, 'reel.mp4'), keys[0], 'video/mp4');
+    const coverUrl = await hostFile(path.join(dir, 'cover.jpg'), keys[1], 'image/jpeg');
     log('Creating Reels container…');
     containerId = await client.createReelContainer({ videoUrl, caption, coverUrl, shareToFeed: config.publishing.shareToFeed });
   }

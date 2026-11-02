@@ -121,6 +121,17 @@ export function getDb(): DB {
   return shared;
 }
 
+/** Checkpoint the WAL into the main file and close (so data/reels.db alone is complete, e.g. when committed). */
+export function closeDb(): void {
+  if (!shared) return;
+  try {
+    shared.pragma('wal_checkpoint(TRUNCATE)');
+  } finally {
+    shared.close();
+    shared = null;
+  }
+}
+
 export const nowIso = () => new Date().toISOString();
 
 // ---------------------------------------------------------------------------------------------

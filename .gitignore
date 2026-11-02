@@ -7,3 +7,11 @@ data/*.db-*
 *.log
 /tmp/
 coverage/
+
+# generated at runtime
+data/insights.json
+data/pending-plan.json
+data/ideas-prompt.md
+reports/*.md
+reports/*.html
+!reports/.gitkeep

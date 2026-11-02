@@ -67,8 +67,10 @@ ${hist.length ? hist.map((h) => `- ${h}`).join('\n') : '- (nothing yet)'}
 ${describeSlots(opts.slots)}
 
 Rules for slots:
+- The template is fixed per slot. hook_type and humor_style are strong suggestions: in EXPLOIT slots you may change them if the joke is clearly better another way (tag what you actually wrote).
 - EXPLOIT slots: a new joke in a format that has worked; it may riff on the "build on" reels but must not copy them.
-- EXPLORE slots are experiments: keep everything else strong so the test is fair. Copy the slot's hypothesis, hypothesis_id and test into "experiment".
+- EXPLORE slots are experiments: never change the feature under test, keep everything else strong so the test is fair, and copy the slot's hypothesis, hypothesis_id and test into "experiment".
+- Use each slot's planned_post_time and loop value.
 
 # OUTPUT
 Return exactly: {"ideas": [ <spec>, ... ]} with ${opts.slots.length} specs, where each spec has this shape:

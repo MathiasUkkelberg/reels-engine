@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /** Single entry point: `tsx src/cli.ts <command> [...args]` (wired to npm scripts in package.json). */
 import { SpecError } from './spec/validate.ts';
+import { closeDb } from './db/index.ts';
 
 const COMMANDS: Record<string, () => Promise<{ run(args: string[]): Promise<void> }>> = {
   render: () => import('./commands/render.ts').then((m) => ({ run: m.renderCmd })),
@@ -20,6 +21,7 @@ const COMMANDS: Record<string, () => Promise<{ run(args: string[]): Promise<void
   learn: () => import('./commands/metrics.ts').then((m) => ({ run: m.learnCmd })),
   status: () => import('./commands/metrics.ts').then((m) => ({ run: m.statusCmd })),
   daily: () => import('./commands/daily.ts').then((m) => ({ run: m.dailyCmd })),
+  'demo:learn': () => import('./commands/demo.ts').then((m) => ({ run: m.demoLearnCmd })),
 };
 
 async function main() {
@@ -29,7 +31,11 @@ async function main() {
     process.exit(cmd ? 1 : 0);
   }
   const mod = await COMMANDS[cmd]();
-  await mod.run(args);
+  try {
+    await mod.run(args);
+  } finally {
+    closeDb();
+  }
 }
 
 main().catch((err) => {

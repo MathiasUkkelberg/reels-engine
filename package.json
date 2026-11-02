@@ -43,6 +43,7 @@
     "status": "tsx src/cli.ts status",
     "daily": "tsx src/cli.ts daily",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit -p ."
+    "typecheck": "tsc --noEmit -p .",
+    "demo:learn": "tsx src/cli.ts demo:learn"
   }
 }

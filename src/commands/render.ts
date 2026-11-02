@@ -135,7 +135,7 @@ export async function examplesCmd(args: string[]) {
     for (const f of files) {
       const spec = loadSpecFile(path.join(dir, f));
       const outDir = path.join(paths.examples, spec.id);
-      const meta = await renderSpec(spec, { browser, outDir });
+      const meta = await renderSpec(spec, { browser, outDir, crf: 22 });
       fs.rmSync(path.join(outDir, 'index.html'), { force: true });
       report(spec, meta, outDir);
     }

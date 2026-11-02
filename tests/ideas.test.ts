@@ -124,3 +124,27 @@ describe('extractJson', () => {
     expect(() => extractJson('nothing')).toThrow();
   });
 });
+
+describe('no-API import', () => {
+  it('imports ideas + self-critique reviews from a pasted reply', async () => {
+    const { importIdeas } = await import('../src/ideas/generate.ts');
+    const db = openDb(':memory:');
+    const reply = 'Sure! Here are the ideas:\n```json\n' + JSON.stringify({
+      ideas: [freshIdea('my AI *apologizing* for 9 minutes', 'I sincerely apologize. Here is a 12-step apology plan.'), freshIdea('AI when you say *be concise*', 'Absolutely! Concisely: (800 words follow)')],
+      reviews: [good(0), bad(1)],
+    }) + '\n```';
+    const res = await importIdeas({ text: reply, db, keep: 5, dryRun: true });
+    expect(res.accepted).toHaveLength(1);
+    expect(res.accepted[0].spec.source).toBe('import');
+    expect(res.rejected[0].reason).toMatch(/critic score/);
+  });
+
+  it('never pairs the nobody hook type with another template', () => {
+    for (let seed = 1; seed < 30; seed++) {
+      for (const s of planBatch(10, null, seed)) {
+        if (s.hook_type === 'nobody') expect(s.template).toBe('nobody');
+        if (s.template === 'nobody') expect(s.hook_type).toBe('nobody');
+      }
+    }
+  });
+});

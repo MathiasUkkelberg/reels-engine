@@ -23,11 +23,13 @@ function status(g: GroupStat | undefined, minEvidence: GroupStat['evidence'][]):
 
 export function renderPlaybook(ins: Insights, date: string): string {
   const a = ins.analysis;
-  const works = a.groups.filter((g) => g.verdict === 'better' && g.evidence !== 'anecdote').slice(0, 10);
-  const fails = a.groups.filter((g) => g.verdict === 'worse' && g.evidence !== 'anecdote').sort((x, y) => x.shrunk - y.shrunk).slice(0, 10);
-  const hints = a.groups
+  // Yes/no features mirror each other ("loop = no" is just the flip side of "loop = yes"); report the "yes" side.
+  const groups = a.groups.filter((g) => !((g.feature === 'loop' || g.feature === 'has_twist') && g.value === 'no'));
+  const works = groups.filter((g) => g.verdict === 'better' && g.evidence !== 'anecdote').slice(0, 10);
+  const fails = groups.filter((g) => g.verdict === 'worse' && g.evidence !== 'anecdote').sort((x, y) => x.shrunk - y.shrunk).slice(0, 10);
+  const hints = groups
     .filter((g) => g.verdict === 'unclear' && g.n >= 2 && (g.pBetter >= 0.85 || g.pBetter <= 0.15))
-    .slice(0, 8);
+    .slice(0, 6);
   const phase =
     ins.n_scored === 0 ? 'bootstrap (no scored reels yet: priors only)' : ins.n_scored < 15 ? 'early (treat everything as hypotheses)' : ins.n_scored <= config.learning.modelThresholdN ? 'building evidence (grouped comparisons)' : 'established (regression + grouped comparisons)';
 

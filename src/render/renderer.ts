@@ -51,6 +51,8 @@ export interface RenderOptions {
   log?: (msg: string) => void;
   /** Skip storyboard + loop check (used by quick tests). */
   fast?: boolean;
+  /** Override config.render.crf (examples use a slightly higher value to keep the repo small). */
+  crf?: number;
 }
 
 function autoWorkers(): number {
@@ -105,7 +107,7 @@ export async function renderSpec(spec: Spec, opts: RenderOptions = {}): Promise<
     const format = config.render.frameFormat;
     const ff = spawn(
       ffmpegBin(),
-      encoderArgs({ fps: tl.fps, duration: tl.duration, crf: config.render.crf, frameFormat: format, out: videoFile }),
+      encoderArgs({ fps: tl.fps, duration: tl.duration, crf: opts.crf ?? config.render.crf, frameFormat: format, out: videoFile }),
       { stdio: ['pipe', 'ignore', 'pipe'] },
     );
     let ffErr = '';
