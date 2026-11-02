@@ -1,0 +1,36 @@
+{
+  "id": "stat-productivity-audit",
+  "template": "stat",
+  "hook": "my AI productivity this week, *audited*",
+  "duration_s": 13,
+  "loop": true,
+  "accent": "amber",
+  "data": {
+    "stats": [
+      { "label": "hours saved by AI", "value": 14, "suffix": "h", "tone": "good" },
+      { "label": "hours explaining what I meant", "value": 9, "suffix": "h", "tone": "warn" },
+      { "label": "hours debugging what it wrote", "value": 11, "suffix": "h", "tone": "bad" }
+    ],
+    "punchline": "net productivity: *-6 hours* 📉"
+  },
+  "features": {
+    "hook_type": "reveal",
+    "topic": "ai-productivity",
+    "humor_style": "self_deprecating",
+    "has_twist": true,
+    "planned_post_time": "19:35",
+    "series": null
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "the 10x engineer was inside us all along (at -0.4x)",
+        "hashtags": ["#aiproductivity", "#claudecode", "#vibecoding", "#devhumor"],
+        "question": "Be honest: is your net number positive this week?"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "explore", "hypothesis": "Stat-reveal reels get above-median shares per reach" },
+  "source": "example"
+}

@@ -1,0 +1,121 @@
+{
+  "id": "keynote-context-window",
+  "spec_hash": "5c72c5366cdbfd5a",
+  "engine_version": "1.0.0",
+  "template": "keynote",
+  "rendered_at": "2026-11-02T16:44:57.676Z",
+  "render_seconds": 32.9,
+  "duration_s": 14,
+  "fps": 30,
+  "frames": 420,
+  "loop": false,
+  "timeline": {
+    "duration": 14,
+    "fps": 30,
+    "frames": 420,
+    "loop": false,
+    "hookIn": 0.25,
+    "contentStart": 0.7,
+    "contentEnd": 14,
+    "loopTail": 0,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 2.591,
+        "end": 3.291
+      },
+      {
+        "i": 1,
+        "at": 3.291,
+        "dur": 2.738,
+        "end": 6.029
+      },
+      {
+        "i": 2,
+        "at": 6.029,
+        "dur": 2.923,
+        "end": 8.952
+      },
+      {
+        "i": 3,
+        "at": 8.952,
+        "dur": 5.048,
+        "end": 14
+      }
+    ],
+    "coverAt": 8.902
+  },
+  "features": {
+    "hook_type": "reveal",
+    "topic": "context-window",
+    "humor_style": "sarcastic",
+    "has_twist": true,
+    "planned_post_time": "19:35",
+    "series": null,
+    "template": "keynote",
+    "length_s": 14,
+    "loop": false,
+    "text_density": "low"
+  },
+  "experiment": {
+    "arm": "explore",
+    "hypothesis": "Parody keynotes about AI hype get more saves than coding-pain reels"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "10 million tokens of context and not one of them is the variable name I gave it",
+        "hashtags": [
+          "#aimodels",
+          "#llm",
+          "#claudeai",
+          "#techhumor"
+        ],
+        "question": "What's the shortest time your AI has forgotten something?"
+      },
+      {
+        "hook_line": "\"remembers everything\" (terms and conditions apply)",
+        "hashtags": [
+          "#ainews",
+          "#aihumor",
+          "#chatgpt"
+        ],
+        "question": "Which launch slide made you laugh the most this year?"
+      }
+    ]
+  },
+  "hook": "every AI launch keynote be like",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 14.066667,
+    "size_bytes": 2205787
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 42,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": null,
+    "warnings": []
+  }
+}

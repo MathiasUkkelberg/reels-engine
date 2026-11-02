@@ -1,0 +1,96 @@
+/*
+ * @0xclaudemaxxer brand theme: the ONE file that defines the look of every reel.
+ * Dark, terminal-inspired palette · Inter for big readable text · JetBrains Mono for code/brand.
+ * Change colors/sizes here and every template follows.
+ */
+:root {
+  /* Palette */
+  --bg: #07090a;
+  --bg-2: #0c1110;
+  --panel: #101715;
+  --panel-2: #16201c;
+  --line: #22302a;
+  --fg: #ecfff4;
+  --fg-dim: #a3b8ac;
+  --muted: #62786b;
+
+  --green: #3dff8f;
+  --amber: #ffb547;
+  --red: #ff5468;
+  --cyan: #5ce1ff;
+  --purple: #b99cff;
+  --coral: #ff8f6b;
+
+  /* Per-reel accent (set from spec.accent, defaults to green) */
+  --accent: var(--green);
+
+  --good: var(--green);
+  --bad: var(--red);
+  --warn: var(--amber);
+
+  --user-bubble: #1f6f49;
+  --ai-bubble: #18221e;
+
+  /* Type */
+  --font-sans: 'Inter', 'Apple Color Emoji', 'Noto Color Emoji', 'Segoe UI Emoji', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Apple Color Emoji', 'Noto Color Emoji', ui-monospace, Menlo, monospace;
+  --text-hook: 74px;
+  --text-xl: 66px;
+  --text-l: 52px;
+  --text-m: 44px;
+  --text-s: 36px;
+  --radius: 28px;
+
+  /* Instagram safe zones (px on the 1080×1920 canvas) */
+  --safe-top: 250px;
+  --safe-bottom: 420px;
+  --safe-right: 120px;
+  --pad: 56px;
+
+  /* Watermark: fixed placement, bottom-left just above Instagram's caption area */
+  --watermark-text: '@0xclaudemaxxer';
+  --watermark-size: 30px;
+  --watermark-color: var(--fg-dim);
+  --watermark-bottom: calc(var(--safe-bottom) + 22px);
+}
+
+[data-accent='amber'] { --accent: var(--amber); }
+[data-accent='cyan'] { --accent: var(--cyan); }
+[data-accent='purple'] { --accent: var(--purple); }
+[data-accent='coral'] { --accent: var(--coral); }
+[data-accent='red'] { --accent: var(--red); }
+
+/* Ambient background: painted once into canvases at boot (cheap to render frame by frame).
+   The grid drifts by whole cells over the reel, so loops are seamless. */
+:root {
+  --bg-glow-top: 0.17;     /* accent glow strength at the top */
+  --bg-glow-bottom: 0.08;  /* accent glow strength at the bottom */
+  --bg-grid-size: 60;      /* px */
+  --bg-grid-alpha: 0.07;   /* grid line opacity */
+  --bg-scan-alpha: 0.018;  /* CRT scanline opacity */
+}
+
+em { font-style: normal; color: var(--accent); }
+
+#hook {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+#wm {
+  font-family: var(--font-mono);
+  font-size: var(--watermark-size);
+  font-weight: 500;
+  color: var(--watermark-color);
+  bottom: var(--watermark-bottom);
+}
+#wm::before {
+  content: '> ' var(--watermark-text);
+}
+#wm .cur {
+  background: var(--accent);
+}

@@ -1,0 +1,133 @@
+{
+  "id": "tier-scary-phrases",
+  "spec_hash": "975bdade080151f1",
+  "engine_version": "1.0.0",
+  "template": "tier_list",
+  "rendered_at": "2026-11-02T16:49:22.519Z",
+  "render_seconds": 36.3,
+  "duration_s": 15,
+  "fps": 30,
+  "frames": 450,
+  "loop": false,
+  "timeline": {
+    "duration": 15,
+    "fps": 30,
+    "frames": 450,
+    "loop": false,
+    "hookIn": 0.25,
+    "contentStart": 0.7,
+    "contentEnd": 15,
+    "loopTail": 0,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 1.847,
+        "end": 2.547
+      },
+      {
+        "i": 1,
+        "at": 2.547,
+        "dur": 2.009,
+        "end": 4.555
+      },
+      {
+        "i": 2,
+        "at": 4.555,
+        "dur": 2.009,
+        "end": 6.564
+      },
+      {
+        "i": 3,
+        "at": 6.564,
+        "dur": 2.171,
+        "end": 8.734
+      },
+      {
+        "i": 4,
+        "at": 8.734,
+        "dur": 2.138,
+        "end": 10.873
+      },
+      {
+        "i": 5,
+        "at": 10.873,
+        "dur": 4.127,
+        "end": 15
+      }
+    ],
+    "coverAt": 10.823
+  },
+  "features": {
+    "hook_type": "list",
+    "topic": "coding-agents",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "12:05",
+    "series": null,
+    "template": "tier_list",
+    "length_s": 15,
+    "loop": false,
+    "text_density": "low"
+  },
+  "experiment": {
+    "arm": "exploit",
+    "based_on": "prior: list/ranking formats invite comment debates"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "if you hear the last one, unplug the router",
+        "hashtags": [
+          "#aicoding",
+          "#claudecode",
+          "#programmerhumor",
+          "#tierlist"
+        ],
+        "question": "Which phrase would you put in RUN tier?"
+      },
+      {
+        "hook_line": "\"minimal changes\" = 2,341 lines changed",
+        "hashtags": [
+          "#vibecoding",
+          "#codingmemes",
+          "#aitools"
+        ],
+        "question": "What did I miss? Drop yours below"
+      }
+    ]
+  },
+  "hook": "AI phrases ranked by how *scared* you should be",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 15.066667,
+    "size_bytes": 2782219
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 34,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": null,
+    "warnings": []
+  }
+}

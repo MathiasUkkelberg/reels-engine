@@ -1,0 +1,46 @@
+{
+  "id": "nobody-yes-no",
+  "template": "nobody",
+  "hook": "asking AI a *yes or no* question",
+  "duration_s": 13,
+  "loop": true,
+  "accent": "purple",
+  "data": {
+    "setup": ["Me: \"is this a yes or no?\""],
+    "actor": "The AI:",
+    "punchline": [
+      "# Great question! 🎯",
+      "## Executive summary",
+      "- It depends on several key factors",
+      "## Pros and cons",
+      "| Yes | No | It depends |",
+      "> In conclusion: it depends."
+    ],
+    "style": "markdown"
+  },
+  "features": {
+    "hook_type": "nobody",
+    "topic": "ai-verbosity",
+    "humor_style": "relatable",
+    "has_twist": false,
+    "planned_post_time": "21:50",
+    "series": null
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "I asked for one word and got a quarterly report",
+        "hashtags": ["#chatgpt", "#claudeai", "#aihumor", "#promptengineering"],
+        "question": "What's the longest answer you've ever got to a yes/no question?"
+      },
+      {
+        "hook_line": "\"answer in one word\" — the AI, 600 words later:",
+        "hashtags": ["#aimemes", "#llm", "#techhumor"],
+        "question": "Send this to the friend who writes like this too"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "explore", "hypothesis": "Loop + markdown-parody reels get higher watch-through than linear ones" },
+  "source": "example"
+}

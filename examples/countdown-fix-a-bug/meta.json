@@ -1,0 +1,121 @@
+{
+  "id": "countdown-fix-a-bug",
+  "spec_hash": "650ef33578b5b8d6",
+  "engine_version": "1.0.0",
+  "template": "countdown",
+  "rendered_at": "2026-11-02T16:43:16.812Z",
+  "render_seconds": 31.3,
+  "duration_s": 13,
+  "fps": 30,
+  "frames": 390,
+  "loop": false,
+  "timeline": {
+    "duration": 13,
+    "fps": 30,
+    "frames": 390,
+    "loop": false,
+    "hookIn": 0.25,
+    "contentStart": 0.7,
+    "contentEnd": 13,
+    "loopTail": 0,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 2.583,
+        "end": 3.283
+      },
+      {
+        "i": 1,
+        "at": 3.283,
+        "dur": 2.793,
+        "end": 6.077
+      },
+      {
+        "i": 2,
+        "at": 6.077,
+        "dur": 2.733,
+        "end": 8.81
+      },
+      {
+        "i": 3,
+        "at": 8.81,
+        "dur": 4.19,
+        "end": 13
+      }
+    ],
+    "coverAt": 8.76
+  },
+  "features": {
+    "hook_type": "list",
+    "topic": "rate-limits",
+    "humor_style": "relatable",
+    "has_twist": true,
+    "planned_post_time": "19:35",
+    "series": null,
+    "template": "countdown",
+    "length_s": 13,
+    "loop": false,
+    "text_density": "medium"
+  },
+  "experiment": {
+    "arm": "exploit",
+    "based_on": "prior: numbered lists + relatable pain + twist"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "stage 5 is going outside (temporarily)",
+        "hashtags": [
+          "#claudecode",
+          "#aicoding",
+          "#vibecoding",
+          "#programmerhumor"
+        ],
+        "question": "Which stage are you in right now?"
+      },
+      {
+        "hook_line": "the real bug was the friends we rate-limited along the way",
+        "hashtags": [
+          "#aihumor",
+          "#devlife",
+          "#codingmemes"
+        ],
+        "question": "How fast do you hit your limit on a bad day?"
+      }
+    ]
+  },
+  "hook": "4 stages of asking AI to fix *one* bug",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 13.066667,
+    "size_bytes": 3046252
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 44,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": null,
+    "warnings": []
+  }
+}

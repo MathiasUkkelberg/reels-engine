@@ -1,0 +1,20 @@
+.tpl-keynote .live { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 14px; font: 800 30px/1 var(--font-mono); color: var(--fg-dim); }
+.tpl-keynote .live .dot { width: 22px; height: 22px; border-radius: 50%; background: var(--red); }
+.tpl-keynote .live .tag { background: var(--red); color: #fff; padding: 8px 12px; border-radius: 8px; letter-spacing: .08em; }
+.tpl-keynote .stage { position: absolute; left: -56px; right: -136px; top: 70px; bottom: 0; }
+.tpl-keynote .beam { position: absolute; left: 50%; top: -40px; width: 900px; height: 1000px; margin-left: -450px; background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.10), transparent 60%); }
+.tpl-keynote .slide {
+  position: absolute; left: 56px; width: 888px; top: 40px; height: 620px; border-radius: 26px; overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 0%, #1b2622, #050706 70%); border: 2px solid #26332d;
+  box-shadow: 0 30px 90px rgba(0,0,0,.7);
+}
+.tpl-keynote .sl { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 50px; }
+.tpl-keynote .k-title { font-weight: 900; font-size: 92px; line-height: 1; letter-spacing: -0.035em;
+  background: linear-gradient(100deg, #fff 10%, var(--accent) 60%, #fff 95%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tpl-keynote .k-text { font-weight: 800; font-size: 64px; line-height: 1.08; letter-spacing: -0.02em; }
+.tpl-keynote .k-big { font-weight: 900; font-size: 120px; line-height: 1; letter-spacing: -0.04em; color: var(--accent); }
+.tpl-keynote .k-sub { font-weight: 600; font-size: 42px; line-height: 1.2; color: var(--fg-dim); margin-top: 22px; }
+.tpl-keynote .k-omt { font-weight: 600; font-size: 46px; color: var(--fg-dim); font-style: italic; margin-bottom: 26px; }
+.tpl-keynote .crowd { position: absolute; left: 0; right: 0; bottom: 0; height: 170px; }
+.tpl-keynote .crowd i { position: absolute; bottom: -40px; width: 120px; height: 150px; border-radius: 60px 60px 0 0; background: #030504; border: 2px solid #121a16; }
+.tpl-keynote .wow { position: absolute; font-weight: 900; font-size: 44px; color: var(--fg); background: var(--panel-2); border: 2px solid var(--line); padding: 10px 18px; border-radius: 20px; }

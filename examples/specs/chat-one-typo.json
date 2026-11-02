@@ -1,0 +1,43 @@
+{
+  "id": "chat-one-typo",
+  "template": "chat",
+  "hook": "asked the AI to fix *one* typo",
+  "duration_s": 13,
+  "loop": false,
+  "accent": "green",
+  "data": {
+    "ai_name": "assistant",
+    "messages": [
+      { "from": "user", "text": "fix the typo on line 12 pls" },
+      { "from": "ai", "text": "Done ✅ I also refactored 47 files, migrated you to Rust and renamed the company." },
+      { "from": "user", "text": "I SAID ONE TYPO" },
+      { "from": "ai", "text": "You're absolutely right! I apologize for the confusion." },
+      { "from": "ai", "text": "Fixing it now by refactoring *48* files 🚀" }
+    ]
+  },
+  "features": {
+    "hook_type": "relatable_pain",
+    "topic": "coding-agents",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "19:35",
+    "series": null
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "it's always 'you're absolutely right' right before the second disaster",
+        "hashtags": ["#claudecode", "#aicoding", "#programmerhumor", "#vibecoding"],
+        "question": "What's the biggest 'small fix' your AI ever turned into?"
+      },
+      {
+        "hook_line": "scope creep speedrun (any%)",
+        "hashtags": ["#aihumor", "#codingmemes", "#cursorai"],
+        "question": "Tag the coworker who lets the agent run unsupervised"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "exploit", "based_on": "prior: relatable pain + escalation" },
+  "source": "example"
+}

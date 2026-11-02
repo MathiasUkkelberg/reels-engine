@@ -1,0 +1,10 @@
+.tpl-countdown .list { position: absolute; left: 0; right: 0; top: 0; }
+.tpl-countdown .li { position: absolute; left: 0; right: 0; display: flex; gap: 20px; align-items: baseline; font-weight: 700; font-size: 44px; line-height: 1.15; color: var(--fg-dim); }
+.tpl-countdown .li .n { font: 800 44px/1 var(--font-mono); color: var(--accent); flex: none; width: 56px; }
+.tpl-countdown .li .tx { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tpl-countdown .spot { position: absolute; left: 0; right: 0; }
+.tpl-countdown .num { font: 800 280px/0.9 var(--font-mono); color: var(--accent); letter-spacing: -0.04em; }
+.tpl-countdown .stx { font-weight: 900; font-size: 74px; line-height: 1.08; letter-spacing: -0.015em; margin-top: 18px; }
+.tpl-countdown .sub { font-weight: 600; font-size: 50px; line-height: 1.2; color: var(--fg-dim); margin-top: 16px; }
+.tpl-countdown .emo { position: absolute; right: 10px; top: 0; font-size: 170px; line-height: 1; }
+.tpl-countdown .rule { height: 3px; background: var(--line); margin-top: 6px; }

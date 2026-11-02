@@ -1,0 +1,18 @@
+.tpl-tier_list .spot { position: absolute; left: 0; right: 0; top: 0; height: 170px; }
+.tpl-tier_list .rows { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 10px; }
+.tpl-tier_list .row { display: flex; gap: 10px; flex: 1 1 0; min-height: 0; }
+.tpl-tier_list .lab {
+  flex: none; width: 140px; border-radius: 18px; display: flex; align-items: center; justify-content: center;
+  font: 900 66px/1 var(--font-sans); color: #0b0f0c; text-align: center;
+}
+.tpl-tier_list .track {
+  flex: 1; background: var(--panel); border: 2px solid var(--line); border-radius: 18px;
+  display: flex; flex-wrap: wrap; align-content: center; gap: 10px; padding: 10px 14px; overflow: hidden;
+}
+.tpl-tier_list .chip {
+  font-weight: 800; font-size: 44px; line-height: 1.1; padding: 12px 20px; border-radius: 14px;
+  background: var(--panel-2); border: 2px solid #3a4c43; color: var(--fg); white-space: nowrap;
+}
+.tpl-tier_list .chip.fly { position: absolute; left: 0; top: 0; margin: 0; transform-origin: 0 0; z-index: 3; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.tpl-tier_list .row.twist .lab { background: var(--red) !important; color: #fff; font-size: 40px; }
+.tpl-tier_list .row.twist .track { border-color: var(--red); background: color-mix(in srgb, var(--red) 14%, var(--panel)); }

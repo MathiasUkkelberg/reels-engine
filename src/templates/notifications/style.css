@@ -1,0 +1,18 @@
+.tpl-notifications .lock { position: absolute; left: 0; right: 0; top: 0; text-align: center; }
+.tpl-notifications .date { font-weight: 600; font-size: 38px; color: var(--fg-dim); }
+.tpl-notifications .time { font-weight: 600; font-size: 170px; line-height: 1; letter-spacing: -0.03em; color: var(--fg); margin-top: 4px; }
+.tpl-notifications .stack { position: absolute; left: 0; right: 0; bottom: 0; overflow: hidden; }
+.tpl-notifications .nt {
+  position: absolute; left: 0; right: 0; padding: 22px 26px 24px; border-radius: 36px;
+  background: rgba(32, 44, 39, 0.92); border: 2px solid #33453d; box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.tpl-notifications .nh { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+.tpl-notifications .ico { width: 60px; height: 60px; border-radius: 16px; background: var(--panel-2); display: flex; align-items: center; justify-content: center; font-size: 36px; flex: none; }
+.tpl-notifications .app { font-weight: 600; font-size: 30px; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 0.04em; }
+.tpl-notifications .ago { margin-left: auto; font-weight: 500; font-size: 30px; color: var(--fg-dim); }
+.tpl-notifications .ti { font-weight: 800; font-size: 44px; line-height: 1.15; }
+.tpl-notifications .bo { font-weight: 500; font-size: 41px; line-height: 1.22; color: #d6e7dd; margin-top: 4px; }
+.tpl-notifications .nt.bad { border-color: color-mix(in srgb, var(--red) 70%, transparent); }
+.tpl-notifications .nt.bad .ti { color: var(--red); }
+.tpl-notifications .nt.good .ti { color: var(--green); }
+.tpl-notifications .nt.warn .ti { color: var(--amber); }

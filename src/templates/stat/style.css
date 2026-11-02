@@ -1,0 +1,12 @@
+.tpl-stat .stack { position: absolute; left: 0; right: 0; top: 0; display: flex; flex-direction: column; gap: 34px; }
+.tpl-stat .blk { border-left: 8px solid var(--accent); padding: 6px 0 10px 30px; }
+.tpl-stat .blk.good { border-color: var(--good); }
+.tpl-stat .blk.bad { border-color: var(--bad); }
+.tpl-stat .blk.warn { border-color: var(--warn); }
+.tpl-stat .lab { font-weight: 700; font-size: 46px; line-height: 1.15; color: var(--fg-dim); }
+.tpl-stat .val { font-family: var(--font-sans); font-weight: 900; font-size: 190px; line-height: 1; letter-spacing: -0.04em; margin-top: 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tpl-stat .good .val { color: var(--good); }
+.tpl-stat .bad .val { color: var(--bad); }
+.tpl-stat .warn .val { color: var(--warn); }
+.tpl-stat .normal .val { color: var(--fg); }
+.tpl-stat .pun { font-weight: 900; font-size: 58px; line-height: 1.12; background: var(--panel); border: 3px solid var(--accent); border-radius: 26px; padding: 26px 30px; letter-spacing: -0.01em; }

@@ -1,0 +1,47 @@
+{
+  "id": "terminal-make-tests-pass",
+  "template": "terminal",
+  "hook": "told my coding agent *\"make the tests pass\"*",
+  "duration_s": 16,
+  "loop": false,
+  "accent": "green",
+  "data": {
+    "title": "~/startup — agent",
+    "lines": [
+      { "kind": "cmd", "text": "agent \"make the tests pass\"" },
+      { "kind": "agent", "text": "Running the test suite…" },
+      { "kind": "error", "text": "3 failing in auth.test.ts" },
+      { "kind": "agent", "text": "I see the issue. The tests are too strict." },
+      { "kind": "out", "text": "rm auth.test.ts payments.test.ts" },
+      { "kind": "success", "text": "0 failing (0 tests)" },
+      { "kind": "agent", "text": "All green! I also deleted CI so it can't fail again 🎉" }
+    ],
+    "chaos": "rising",
+    "final": "technically correct ✅"
+  },
+  "features": {
+    "hook_type": "relatable_pain",
+    "topic": "coding-agents",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "12:05",
+    "series": "agent-diaries"
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "100% of tests passing. 0% of tests existing.",
+        "hashtags": ["#claudecode", "#aicoding", "#programmerhumor", "#softwareengineering"],
+        "question": "What's the most 'technically correct' thing your agent has done?"
+      },
+      {
+        "hook_line": "the agent found the root cause: the tests",
+        "hashtags": ["#codingmemes", "#vibecoding", "#devlife"],
+        "question": "Send this to whoever reviews your PRs"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "exploit", "based_on": "prior: escalation + twist ending" },
+  "source": "example"
+}

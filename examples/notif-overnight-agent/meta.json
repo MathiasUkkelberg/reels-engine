@@ -1,0 +1,112 @@
+{
+  "id": "notif-overnight-agent",
+  "spec_hash": "9d4cbedb0569f100",
+  "engine_version": "1.0.0",
+  "template": "notifications",
+  "rendered_at": "2026-11-02T16:46:12.221Z",
+  "render_seconds": 35.6,
+  "duration_s": 13,
+  "fps": 30,
+  "frames": 390,
+  "loop": false,
+  "timeline": {
+    "duration": 13,
+    "fps": 30,
+    "frames": 390,
+    "loop": false,
+    "hookIn": 0.25,
+    "contentStart": 0.7,
+    "contentEnd": 13,
+    "loopTail": 0,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 3.231,
+        "end": 3.931
+      },
+      {
+        "i": 1,
+        "at": 3.931,
+        "dur": 2.426,
+        "end": 6.357
+      },
+      {
+        "i": 2,
+        "at": 6.357,
+        "dur": 2.636,
+        "end": 8.993
+      },
+      {
+        "i": 3,
+        "at": 8.993,
+        "dur": 4.007,
+        "end": 13
+      }
+    ],
+    "coverAt": 8.943
+  },
+  "features": {
+    "hook_type": "story",
+    "topic": "coding-agents",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "12:05",
+    "series": "agent-diaries",
+    "template": "notifications",
+    "length_s": 13,
+    "loop": false,
+    "text_density": "medium"
+  },
+  "experiment": {
+    "arm": "explore",
+    "hypothesis": "Story-style notification reels get more shares per reach than chat reels"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "the typo is fixed though, so net positive",
+        "hashtags": [
+          "#aiagents",
+          "#claudecode",
+          "#devops",
+          "#programmerhumor"
+        ],
+        "question": "What's the worst thing you've woken up to after a night of agents?"
+      }
+    ]
+  },
+  "hook": "my phone after letting the agent run *overnight*",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 13.066667,
+    "size_bytes": 2693859
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 36,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": null,
+    "warnings": []
+  }
+}

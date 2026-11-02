@@ -1,0 +1,15 @@
+.tpl-dialogue .area { position: absolute; left: 0; right: 0; top: 0; overflow: hidden; }
+.tpl-dialogue .list { position: absolute; left: 0; right: 0; top: 0; }
+.tpl-dialogue .bub {
+  position: absolute; max-width: 80%; padding: 24px 32px; border-radius: 36px;
+  font-weight: 700; font-size: 48px; line-height: 1.2; background: var(--panel-2); border: 3px solid var(--line);
+}
+.tpl-dialogue .bub.l { left: 0; border-bottom-left-radius: 8px; }
+.tpl-dialogue .bub.r { right: 0; border-bottom-right-radius: 8px; }
+.tpl-dialogue .who { display: block; font: 800 30px/1.2 var(--font-mono); margin-bottom: 6px; }
+.tpl-dialogue .chars { position: absolute; left: 0; right: 0; bottom: 0; height: 310px; }
+.tpl-dialogue .ch { position: absolute; bottom: 0; width: 260px; text-align: center; }
+.tpl-dialogue .ch.l { left: 40px; }
+.tpl-dialogue .ch.r { right: 40px; }
+.tpl-dialogue .ch svg { display: block; margin: 0 auto; overflow: visible; }
+.tpl-dialogue .nm { font: 800 34px/1 var(--font-mono); margin-top: 8px; }

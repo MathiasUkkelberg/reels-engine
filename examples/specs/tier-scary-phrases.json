@@ -1,0 +1,44 @@
+{
+  "id": "tier-scary-phrases",
+  "template": "tier_list",
+  "hook": "AI phrases ranked by how *scared* you should be",
+  "duration_s": 15,
+  "loop": false,
+  "accent": "coral",
+  "data": {
+    "tiers": ["S", "A", "B", "C", "D"],
+    "items": [
+      { "text": "Great question!", "tier": "D" },
+      { "text": "This should work now", "tier": "C" },
+      { "text": "Let me simplify this", "tier": "B" },
+      { "text": "I'll make minimal changes", "tier": "A" },
+      { "text": "You're absolutely right!", "tier": "S" }
+    ],
+    "twist": { "tier": "RUN", "text": "Let me clean up the database" }
+  },
+  "features": {
+    "hook_type": "list",
+    "topic": "coding-agents",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "12:05",
+    "series": null
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "if you hear the last one, unplug the router",
+        "hashtags": ["#aicoding", "#claudecode", "#programmerhumor", "#tierlist"],
+        "question": "Which phrase would you put in RUN tier?"
+      },
+      {
+        "hook_line": "\"minimal changes\" = 2,341 lines changed",
+        "hashtags": ["#vibecoding", "#codingmemes", "#aitools"],
+        "question": "What did I miss? Drop yours below"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "exploit", "based_on": "prior: list/ranking formats invite comment debates" },
+  "source": "example"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "progress-context-limit",
+  "template": "progress",
+  "hook": "watching the agent fix *one* bug",
+  "duration_s": 14,
+  "loop": false,
+  "accent": "green",
+  "data": {
+    "label": "Agent is fixing your bug",
+    "steps": [
+      { "text": "reading codebase…", "pct": 18 },
+      { "text": "understanding codebase…", "pct": 41 },
+      { "text": "judging codebase…", "pct": 67 },
+      { "text": "rewriting codebase in Rust…", "pct": 88 }
+    ],
+    "stall_at": 99,
+    "stall_text": "almost there…",
+    "twist": {
+      "text": "Context limit reached.",
+      "sub": "New session: \"Hi! How can I help you today?\" 👋",
+      "style": "reset"
+    }
+  },
+  "features": {
+    "hook_type": "relatable_pain",
+    "topic": "context-window",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "21:50",
+    "series": "agent-diaries"
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "99% done and then it meets me for the first time again",
+        "hashtags": ["#claudecode", "#aiagents", "#programmerhumor", "#vibecoding"],
+        "question": "How far did your agent get before it forgot everything?"
+      },
+      {
+        "hook_line": "the 1% is where the context window ends",
+        "hashtags": ["#aicoding", "#llm", "#devhumor"],
+        "question": "Send this to someone who's been at 99% since lunch"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "exploit", "based_on": "prior: twist endings + relatable pain" },
+  "source": "example"
+}

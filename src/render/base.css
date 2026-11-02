@@ -1,0 +1,65 @@
+/* Structural layout shared by all templates (colors/fonts come from theme.css). */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #000; }
+body { -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+
+#stage {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  color: var(--fg);
+  font-family: var(--font-sans);
+}
+#bg, #fx { position: absolute; inset: 0; }
+#bg { background: var(--bg); }
+#bg canvas { position: absolute; left: 0; top: 0; }
+#fx { pointer-events: none; z-index: 5; }
+
+#hook {
+  position: absolute;
+  z-index: 3;
+  top: calc(var(--safe-top) + 16px);
+  left: var(--pad);
+  width: calc(1080px - var(--pad) - var(--safe-right) - 16px);
+  max-height: 290px;
+  font-size: var(--text-hook);
+  overflow: hidden;
+  transform-origin: left center;
+}
+
+#content {
+  position: absolute;
+  z-index: 2;
+  left: var(--pad);
+  width: calc(1080px - var(--pad) - var(--safe-right) - 16px);
+  /* top/bottom set at boot once the hook is measured */
+  top: 560px;
+  bottom: calc(var(--safe-bottom) + 76px);
+}
+
+#wm {
+  position: absolute;
+  z-index: 4;
+  left: var(--pad);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+#wm .cur { display: inline-block; width: 16px; height: 30px; }
+
+/* Utility classes for templates */
+.abs { position: absolute; }
+.mono { font-family: var(--font-mono); }
+.center { display: flex; align-items: center; justify-content: center; text-align: center; }
+.panel {
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* Preview-only overlay (never present in renders) */
+#safe-overlay { position: absolute; inset: 0; z-index: 50; pointer-events: none; display: none; }
+#safe-overlay div { position: absolute; background: rgba(255, 0, 60, 0.22); outline: 2px dashed rgba(255, 60, 90, 0.9); }
+#safe-overlay.on { display: block; }

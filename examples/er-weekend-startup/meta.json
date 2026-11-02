@@ -1,0 +1,118 @@
+{
+  "id": "er-weekend-startup",
+  "spec_hash": "fbc41563ad0a9825",
+  "engine_version": "1.0.0",
+  "template": "expectation_reality",
+  "rendered_at": "2026-11-02T16:50:46.615Z",
+  "render_seconds": 32.6,
+  "duration_s": 12,
+  "fps": 30,
+  "frames": 360,
+  "loop": true,
+  "timeline": {
+    "duration": 12,
+    "fps": 30,
+    "frames": 360,
+    "loop": true,
+    "hookIn": 0,
+    "contentStart": 0.7,
+    "contentEnd": 11.4,
+    "loopTail": 0.6,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 2.895,
+        "end": 3.595
+      },
+      {
+        "i": 1,
+        "at": 3.595,
+        "dur": 1.454,
+        "end": 5.049
+      },
+      {
+        "i": 2,
+        "at": 5.049,
+        "dur": 2.109,
+        "end": 7.157
+      },
+      {
+        "i": 3,
+        "at": 7.157,
+        "dur": 1.978,
+        "end": 9.135
+      },
+      {
+        "i": 4,
+        "at": 9.135,
+        "dur": 2.265,
+        "end": 11.4
+      }
+    ],
+    "coverAt": 9.085
+  },
+  "features": {
+    "hook_type": "comparison",
+    "topic": "vibe-coding",
+    "humor_style": "relatable",
+    "has_twist": true,
+    "planned_post_time": "19:35",
+    "series": null,
+    "template": "expectation_reality",
+    "length_s": 12,
+    "loop": true,
+    "text_density": "medium"
+  },
+  "experiment": {
+    "arm": "exploit",
+    "based_on": "prior: comparison formats + relatable pain"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "the MVP is 'almost done' (it has been almost done since Friday)",
+        "hashtags": [
+          "#vibecoding",
+          "#buildinpublic",
+          "#indiehacker",
+          "#aitools"
+        ],
+        "question": "How many weekend projects do you have that are 'almost done'?"
+      }
+    ]
+  },
+  "hook": "vibe coding a startup in *one weekend*",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 12.066667,
+    "size_bytes": 2218867
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 30,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": 40.769862,
+    "warnings": []
+  }
+}

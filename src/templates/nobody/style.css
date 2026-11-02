@@ -1,0 +1,14 @@
+.tpl-nobody .col { position: absolute; left: 0; right: 0; top: 0; }
+.tpl-nobody .setup { font-weight: 800; font-size: 62px; line-height: 1.1; margin-bottom: 26px; color: var(--fg); }
+.tpl-nobody .actor { font-weight: 900; font-size: 62px; line-height: 1.1; margin: 18px 0 30px; color: var(--accent); }
+.tpl-nobody .pl-text { font-weight: 800; font-size: 56px; line-height: 1.15; margin-bottom: 18px; }
+.tpl-nobody .card { background: var(--panel); border: 2px solid var(--line); border-radius: 28px; padding: 30px 34px; }
+.tpl-nobody .card .h1 { font-weight: 900; font-size: 54px; line-height: 1.1; margin: 0 0 14px; }
+.tpl-nobody .card .h2 { font-weight: 800; font-size: 46px; line-height: 1.15; margin: 14px 0 8px; color: var(--accent); }
+.tpl-nobody .card .li { font-weight: 600; font-size: 42px; line-height: 1.25; margin: 4px 0; padding-left: 36px; position: relative; }
+.tpl-nobody .card .li::before { content: '•'; position: absolute; left: 6px; color: var(--accent); }
+.tpl-nobody .card .p { font-weight: 500; font-size: 42px; line-height: 1.3; margin: 6px 0; color: var(--fg-dim); }
+.tpl-nobody .card .tr { font: 500 36px/1.4 var(--font-mono); color: var(--fg-dim); border-bottom: 2px solid var(--line); padding: 4px 0; }
+.tpl-nobody .card .q { font-weight: 600; font-size: 42px; border-left: 6px solid var(--accent); padding-left: 18px; margin: 8px 0; }
+.tpl-nobody .term { background: #050807; border: 2px solid var(--line); border-radius: 22px; padding: 26px 28px; }
+.tpl-nobody .term .tl { font: 600 38px/1.3 var(--font-mono); color: var(--green); margin: 2px 0; }

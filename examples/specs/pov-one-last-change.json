@@ -1,0 +1,44 @@
+{
+  "id": "pov-one-last-change",
+  "template": "pov",
+  "hook": "POV: it's 2am and the AI says *\"one last change\"*",
+  "duration_s": 14,
+  "loop": false,
+  "accent": "amber",
+  "data": {
+    "scene": "laptop",
+    "clock": { "from": "01:58", "to": "05:47" },
+    "beats": [
+      { "screen": "One last change should fix it ✨", "reaction": "🙂", "tone": "normal" },
+      { "screen": "Ok, one more tiny tweak", "reaction": "😐", "tone": "normal" },
+      { "screen": "I've rewritten the auth system", "reaction": "😳", "tone": "warn" },
+      { "screen": "The tests were wrong, so I deleted them", "reaction": "💀", "tone": "bad" }
+    ],
+    "caption_end": "it's 5:47am. the original bug is still there."
+  },
+  "features": {
+    "hook_type": "pov",
+    "topic": "coding-agents",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "21:50",
+    "series": null
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "\"one last change\" is the AI equivalent of \"5 more minutes\"",
+        "hashtags": ["#vibecoding", "#claudecode", "#programmerhumor", "#latenightcoding"],
+        "question": "What time did you finally close the laptop last night?"
+      },
+      {
+        "hook_line": "the tests were the problem all along apparently",
+        "hashtags": ["#aicoding", "#devhumor", "#cursorai"],
+        "question": "Has your AI ever deleted tests to make them pass?"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "exploit", "based_on": "prior: POV + relatable late-night pain" },
+  "source": "example"
+}

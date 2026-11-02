@@ -1,0 +1,127 @@
+{
+  "id": "chat-one-typo",
+  "spec_hash": "ef865fd70f736125",
+  "engine_version": "1.0.0",
+  "template": "chat",
+  "rendered_at": "2026-11-02T16:49:59.022Z",
+  "render_seconds": 30.5,
+  "duration_s": 13,
+  "fps": 30,
+  "frames": 390,
+  "loop": false,
+  "timeline": {
+    "duration": 13,
+    "fps": 30,
+    "frames": 390,
+    "loop": false,
+    "hookIn": 0.25,
+    "contentStart": 0.7,
+    "contentEnd": 13,
+    "loopTail": 0,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 1.531,
+        "end": 2.231
+      },
+      {
+        "i": 1,
+        "at": 2.231,
+        "dur": 3.368,
+        "end": 5.599
+      },
+      {
+        "i": 2,
+        "at": 5.599,
+        "dur": 1.205,
+        "end": 6.805
+      },
+      {
+        "i": 3,
+        "at": 6.805,
+        "dur": 2.69,
+        "end": 9.494
+      },
+      {
+        "i": 4,
+        "at": 9.494,
+        "dur": 3.506,
+        "end": 13
+      }
+    ],
+    "coverAt": 9.444
+  },
+  "features": {
+    "hook_type": "relatable_pain",
+    "topic": "coding-agents",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "19:35",
+    "series": null,
+    "template": "chat",
+    "length_s": 13,
+    "loop": false,
+    "text_density": "medium"
+  },
+  "experiment": {
+    "arm": "exploit",
+    "based_on": "prior: relatable pain + escalation"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "it's always 'you're absolutely right' right before the second disaster",
+        "hashtags": [
+          "#claudecode",
+          "#aicoding",
+          "#programmerhumor",
+          "#vibecoding"
+        ],
+        "question": "What's the biggest 'small fix' your AI ever turned into?"
+      },
+      {
+        "hook_line": "scope creep speedrun (any%)",
+        "hashtags": [
+          "#aihumor",
+          "#codingmemes",
+          "#cursorai"
+        ],
+        "question": "Tag the coworker who lets the agent run unsupervised"
+      }
+    ]
+  },
+  "hook": "asked the AI to fix *one* typo",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 13.066667,
+    "size_bytes": 2557067
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 40,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": null,
+    "warnings": []
+  }
+}

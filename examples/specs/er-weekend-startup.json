@@ -1,0 +1,42 @@
+{
+  "id": "er-weekend-startup",
+  "template": "expectation_reality",
+  "hook": "vibe coding a startup in *one weekend*",
+  "duration_s": 12,
+  "loop": true,
+  "accent": "cyan",
+  "data": {
+    "expectation": {
+      "label": "EXPECTATION",
+      "text": "Ship the MVP by Sunday",
+      "items": ["clean architecture", "first 1,000 users"],
+      "emoji": "🚀"
+    },
+    "reality": {
+      "label": "REALITY",
+      "text": "Sunday, 11:58pm",
+      "items": ["landing page still says Lorem ipsum", "API key pushed to a public repo", "1 user (it's my mom)"],
+      "emoji": "🔥"
+    }
+  },
+  "features": {
+    "hook_type": "comparison",
+    "topic": "vibe-coding",
+    "humor_style": "relatable",
+    "has_twist": true,
+    "planned_post_time": "19:35",
+    "series": null
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "the MVP is 'almost done' (it has been almost done since Friday)",
+        "hashtags": ["#vibecoding", "#buildinpublic", "#indiehacker", "#aitools"],
+        "question": "How many weekend projects do you have that are 'almost done'?"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "exploit", "based_on": "prior: comparison formats + relatable pain" },
+  "source": "example"
+}

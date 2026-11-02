@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reels Dashboard</title>
+<style>
+:root{color-scheme:light;--surface:#fcfcfb;--panel:#ffffff;--text:#0b0b0b;--text2:#52514e;--muted:#8a8984;--line:#e6e5e0;--pos:#2a78d6;--neg:#eb6834;--neu:#a3a29b;--accent:#1baf7a}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){color-scheme:dark;--surface:#121211;--panel:#1a1a19;--text:#f0efec;--text2:#c3c2b7;--muted:#8d8c84;--line:#2c2c2a;--pos:#3987e5;--neg:#d95926;--neu:#6f6e68;--accent:#199e70}}
+:root[data-theme="dark"]{color-scheme:dark;--surface:#121211;--panel:#1a1a19;--text:#f0efec;--text2:#c3c2b7;--muted:#8d8c84;--line:#2c2c2a;--pos:#3987e5;--neg:#d95926;--neu:#6f6e68;--accent:#199e70}
+body{margin:0;background:var(--surface);color:var(--text);font:15px/1.5 system-ui,-apple-system,sans-serif}
+main{max-width:920px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:32px 0 10px}h3{font-size:14px;margin:18px 0 4px;color:var(--text2);text-transform:uppercase;letter-spacing:.04em}
+.muted,.tick{color:var(--muted);fill:var(--muted);font-size:12px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.tile .k{color:var(--text2);font-size:13px}.tile .v{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums}
+.bar{height:8px;border-radius:4px;background:var(--line);margin-top:8px;overflow:hidden}.bar>i{display:block;height:100%;background:var(--accent);border-radius:4px}
+svg{width:100%;height:auto;display:block}
+.grid{stroke:var(--line);stroke-width:1}.grid.zero,.zero{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3}
+.trend{fill:none;stroke:var(--text2);stroke-width:2}
+.dot{fill:var(--pos);stroke:var(--panel);stroke-width:2}.dot.neg{fill:var(--neg)}.dot.neu{fill:var(--neu)}
+.ci{stroke-width:2;stroke:var(--pos)}.ci.neg{stroke:var(--neg)}.ci.neu{stroke:var(--neu)}
+.hit,.hitrow{fill:transparent}.pt:hover .hitrow{fill:var(--line);opacity:.5}.pt:hover .dot{r:8}
+.lab{fill:var(--text);font-size:13px}.val{fill:var(--text2);font-size:12px}
+.legend{font-size:12px;color:var(--text2)}.sw{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--pos);margin:0 4px 0 10px;vertical-align:-1px}.sw.line{border-radius:1px;height:2px;width:14px;background:var(--text2);vertical-align:3px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}.r{text-align:right;font-variant-numeric:tabular-nums}
+.badge{font-size:11px;padding:2px 6px;border-radius:6px;border:1px solid var(--line)}.badge.supported{border-color:var(--pos)}.badge.refuted{border-color:var(--neg)}
+code{font-size:12px}
+</style></head><body><main><p style="background:#ffb547;color:#000;padding:8px 12px;border-radius:8px"><b>Synthetic demo data</b> (npm run demo:learn): not real account metrics.</p>
+<h1>@0xclaudemaxxer · learning dashboard</h1>
+<div class="muted">Generated demo by <code>npm run learn</code> · mode: model · 1.00× = a typical recent reel</div>
+<div class="tiles">
+  <div class="tile"><div class="k">Followers</div><div class="v">7,308</div><div class="bar"><i style="width:3.7%"></i></div><div class="muted">3.7% of 200,000</div></div>
+  <div class="tile"><div class="k">Scored reels</div><div class="v">64</div><div class="muted">64 posted · 0 too young</div></div>
+  <div class="tile"><div class="k">Median virality</div><div class="v">1.01×</div><div class="muted">vs rolling median of recent reels</div></div>
+  <div class="tile"><div class="k">Best reel</div><div class="v">2.71×</div><div class="muted">demo-051-chat</div></div>
+</div>
+<h2>Virality over time</h2><svg viewBox="0 0 860 260" role="img" aria-label="Virality per reel over time with a rolling median"><line x1="48" x2="844" y1="220.05096335304856" y2="220.05096335304856" class="grid"/><text x="40" y="224.05096335304856" class="tick" text-anchor="end">0.50×</text><line x1="48" x2="844" y1="136.45397817588315" y2="136.45397817588315" class="grid zero"/><text x="40" y="140.45397817588315" class="tick" text-anchor="end">1×</text><line x1="48" x2="844" y1="52.85699299871773" y2="52.85699299871773" class="grid"/><text x="40" y="56.85699299871773" class="tick" text-anchor="end">2×</text><path d="M48.0,154.6L60.6,126.5L73.3,154.6L85.9,154.6L98.5,154.8L111.2,154.8L123.8,154.8L136.4,150.5L149.1,122.3L161.7,116.5L174.3,76.3L187.0,122.3L199.6,100.2L212.3,100.2L224.9,122.0L237.5,122.0L250.2,100.2L262.8,122.0L275.4,137.1L288.1,137.1L300.7,137.1L313.3,137.1L326.0,137.1L338.6,182.3L351.2,128.1L363.9,151.9L376.5,174.7L389.1,174.7L401.8,151.9L414.4,168.1L427.0,168.1L439.7,168.1L452.3,137.2L465.0,137.2L477.6,121.4L490.2,109.1L502.9,78.9L515.5,78.9L528.1,109.1L540.8,132.7L553.4,139.0L566.0,154.9L578.7,154.9L591.3,139.0L603.9,154.9L616.6,156.6L629.2,134.1L641.8,156.6L654.5,156.6L667.1,149.6L679.7,140.2L692.4,140.2L705.0,135.6L717.7,135.6L730.3,110.8L742.9,127.7L755.6,133.5L768.2,133.5L780.8,133.5L793.5,133.5L806.1,133.9L818.7,133.9L831.4,145.3L844.0,145.3" class="trend"/><g class="pt"><circle cx="48" cy="154.5758595260418" r="14" class="hit"/><circle cx="48" cy="154.5758595260418" r="5" class="dot"/><title>demo-001-nobody · 2026-09-01 · 0.86× · nobody
+asking AI a *yes or no* question</title></g><g class="pt"><circle cx="60.63492063492063" cy="126.51840246699028" r="14" class="hit"/><circle cx="60.63492063492063" cy="126.51840246699028" r="5" class="dot"/><title>demo-002-expectation_reality · 2026-09-01 · 1.09× · expectation_reality
+vibe coding a startup in *one weekend*</title></g><g class="pt"><circle cx="73.26984126984127" cy="157.34536491777385" r="14" class="hit"/><circle cx="73.26984126984127" cy="157.34536491777385" r="5" class="dot"/><title>demo-003-keynote · 2026-09-02 · 0.84× · keynote
+every AI launch keynote be like</title></g><g class="pt"><circle cx="85.9047619047619" cy="160.08460255112698" r="14" class="hit"/><circle cx="85.9047619047619" cy="160.08460255112698" r="5" class="dot"/><title>demo-004-tier_list · 2026-09-02 · 0.82× · tier_list
+AI phrases ranked by how *scared* you should be</title></g><g class="pt"><circle cx="98.53968253968253" cy="154.83816939158044" r="14" class="hit"/><circle cx="98.53968253968253" cy="154.83816939158044" r="5" class="dot"/><title>demo-005-expectation_reality · 2026-09-03 · 0.86× · expectation_reality
+vibe coding a startup in *one weekend*</title></g><g class="pt"><circle cx="111.17460317460316" cy="116.49913649759172" r="14" class="hit"/><circle cx="111.17460317460316" cy="116.49913649759172" r="5" class="dot"/><title>demo-006-tier_list · 2026-09-03 · 1.18× · tier_list
+AI phrases ranked by how *scared* you should be</title></g><g class="pt"><circle cx="123.80952380952381" cy="76.31963896955182" r="14" class="hit"/><circle cx="123.80952380952381" cy="76.31963896955182" r="5" class="dot"/><title>demo-007-stat · 2026-09-04 · 1.65× · stat
+my AI productivity this week, *audited*</title></g><g class="pt"><circle cx="136.44444444444446" cy="150.53231685035502" r="14" class="hit"/><circle cx="136.44444444444446" cy="150.53231685035502" r="5" class="dot"/><title>demo-008-pov · 2026-09-04 · 0.89× · pov
+POV: it's 2am and the AI says *&quot;one last change&quot;*</title></g><g class="pt"><circle cx="149.07936507936506" cy="122.33233322041494" r="14" class="hit"/><circle cx="149.07936507936506" cy="122.33233322041494" r="5" class="dot"/><title>demo-009-keynote · 2026-09-05 · 1.12× · keynote
+every AI launch keynote be like</title></g><g class="pt"><circle cx="161.71428571428572" cy="55.8599018942697" r="14" class="hit"/><circle cx="161.71428571428572" cy="55.8599018942697" r="5" class="dot"/><title>demo-010-nobody · 2026-09-05 · 1.95× · nobody
+asking AI a *yes or no* question</title></g><g class="pt"><circle cx="174.34920634920633" cy="48.52054509785378" r="14" class="hit"/><circle cx="174.34920634920633" cy="48.52054509785378" r="5" class="dot"/><title>demo-011-terminal · 2026-09-06 · 2.07× · terminal
+told my coding agent *&quot;make the tests pass&quot;*</title></g><g class="pt"><circle cx="186.984126984127" cy="129.762782796956" r="14" class="hit"/><circle cx="186.984126984127" cy="129.762782796956" r="5" class="dot"/><title>demo-012-stat · 2026-09-06 · 1.06× · stat
+my AI productivity this week, *audited*</title></g><g class="pt"><circle cx="199.61904761904762" cy="100.20451579162892" r="14" class="hit"/><circle cx="199.61904761904762" cy="100.20451579162892" r="5" class="dot"/><title>demo-013-stat · 2026-09-07 · 1.35× · stat
+my AI productivity this week, *audited*</title></g><g class="pt"><circle cx="212.25396825396825" cy="121.95859992140218" r="14" class="hit"/><circle cx="212.25396825396825" cy="121.95859992140218" r="5" class="dot"/><title>demo-014-dialogue · 2026-09-07 · 1.13× · dialogue
+asking AI for *brutally honest* feedback</title></g><g class="pt"><circle cx="224.88888888888889" cy="157.97557829963444" r="14" class="hit"/><circle cx="224.88888888888889" cy="157.97557829963444" r="5" class="dot"/><title>demo-015-notifications · 2026-09-08 · 0.84× · notifications
+my phone after letting the agent run *overnight*</title></g><g class="pt"><circle cx="237.52380952380952" cy="84.18104560954454" r="14" class="hit"/><circle cx="237.52380952380952" cy="84.18104560954454" r="5" class="dot"/><title>demo-016-terminal · 2026-09-08 · 1.54× · terminal
+told my coding agent *&quot;make the tests pass&quot;*</title></g><g class="pt"><circle cx="250.15873015873015" cy="60.30189735761939" r="14" class="hit"/><circle cx="250.15873015873015" cy="60.30189735761939" r="5" class="dot"/><title>demo-017-progress · 2026-09-09 · 1.88× · progress
+watching the agent fix *one* bug</title></g><g class="pt"><circle cx="262.7936507936508" cy="186.25535951699547" r="14" class="hit"/><circle cx="262.7936507936508" cy="186.25535951699547" r="5" class="dot"/><title>demo-018-countdown · 2026-09-09 · 0.66× · countdown
+4 stages of asking AI to fix *one* bug</title></g><g class="pt"><circle cx="275.42857142857144" cy="137.1055514015064" r="14" class="hit"/><circle cx="275.42857142857144" cy="137.1055514015064" r="5" class="dot"/><title>demo-019-countdown · 2026-09-10 · 0.99× · countdown
+4 stages of asking AI to fix *one* bug</title></g><g class="pt"><circle cx="288.06349206349205" cy="186.6248159354876" r="14" class="hit"/><circle cx="288.06349206349205" cy="186.6248159354876" r="5" class="dot"/><title>demo-020-notifications · 2026-09-10 · 0.66× · notifications
+my phone after letting the agent run *overnight*</title></g><g class="pt"><circle cx="300.69841269841265" cy="126.16586153223106" r="14" class="hit"/><circle cx="300.69841269841265" cy="126.16586153223106" r="5" class="dot"/><title>demo-021-keynote · 2026-09-11 · 1.09× · keynote
+every AI launch keynote be like</title></g><g class="pt"><circle cx="313.3333333333333" cy="128.14077708610074" r="14" class="hit"/><circle cx="313.3333333333333" cy="128.14077708610074" r="5" class="dot"/><title>demo-022-nobody · 2026-09-11 · 1.07× · nobody
+asking AI a *yes or no* question</title></g><g class="pt"><circle cx="325.968253968254" cy="182.31813942591373" r="14" class="hit"/><circle cx="325.968253968254" cy="182.31813942591373" r="5" class="dot"/><title>demo-023-dialogue · 2026-09-12 · 0.68× · dialogue
+asking AI for *brutally honest* feedback</title></g><g class="pt"><circle cx="338.6031746031746" cy="189.48600346386777" r="14" class="hit"/><circle cx="338.6031746031746" cy="189.48600346386777" r="5" class="dot"/><title>demo-024-tier_list · 2026-09-12 · 0.64× · tier_list
+AI phrases ranked by how *scared* you should be</title></g><g class="pt"><circle cx="351.23809523809524" cy="118.03500484632097" r="14" class="hit"/><circle cx="351.23809523809524" cy="118.03500484632097" r="5" class="dot"/><title>demo-025-stat · 2026-09-13 · 1.17× · stat
+my AI productivity this week, *audited*</title></g><g class="pt"><circle cx="363.87301587301585" cy="151.94025006930627" r="14" class="hit"/><circle cx="363.87301587301585" cy="151.94025006930627" r="5" class="dot"/><title>demo-026-chat · 2026-09-13 · 0.88× · chat
+asked the AI to fix *one* typo</title></g><g class="pt"><circle cx="376.5079365079365" cy="174.71129281572746" r="14" class="hit"/><circle cx="376.5079365079365" cy="174.71129281572746" r="5" class="dot"/><title>demo-027-keynote · 2026-09-14 · 0.73× · keynote
+every AI launch keynote be like</title></g><g class="pt"><circle cx="389.1428571428571" cy="196.59493047637926" r="14" class="hit"/><circle cx="389.1428571428571" cy="196.59493047637926" r="5" class="dot"/><title>demo-028-keynote · 2026-09-14 · 0.61× · keynote
+every AI launch keynote be like</title></g><g class="pt"><circle cx="401.77777777777777" cy="92.7390252522402" r="14" class="hit"/><circle cx="401.77777777777777" cy="92.7390252522402" r="5" class="dot"/><title>demo-029-progress · 2026-09-15 · 1.44× · progress
+watching the agent fix *one* bug</title></g><g class="pt"><circle cx="414.4126984126984" cy="168.1040180135563" r="14" class="hit"/><circle cx="414.4126984126984" cy="168.1040180135563" r="5" class="dot"/><title>demo-030-notifications · 2026-09-15 · 0.77× · notifications
+my phone after letting the agent run *overnight*</title></g><g class="pt"><circle cx="427.04761904761904" cy="137.23960506175655" r="14" class="hit"/><circle cx="427.04761904761904" cy="137.23960506175655" r="5" class="dot"/><title>demo-031-progress · 2026-09-16 · 0.99× · progress
+watching the agent fix *one* bug</title></g><g class="pt"><circle cx="439.68253968253964" cy="206.19429094974356" r="14" class="hit"/><circle cx="439.68253968253964" cy="206.19429094974356" r="5" class="dot"/><title>demo-032-notifications · 2026-09-16 · 0.56× · notifications
+my phone after letting the agent run *overnight*</title></g><g class="pt"><circle cx="452.3174603174603" cy="121.3580304022131" r="14" class="hit"/><circle cx="452.3174603174603" cy="121.3580304022131" r="5" class="dot"/><title>demo-033-countdown · 2026-09-17 · 1.13× · countdown
+4 stages of asking AI to fix *one* bug</title></g><g class="pt"><circle cx="464.95238095238096" cy="59.32418535425057" r="14" class="hit"/><circle cx="464.95238095238096" cy="59.32418535425057" r="5" class="dot"/><title>demo-034-terminal · 2026-09-17 · 1.90× · terminal
+told my coding agent *&quot;make the tests pass&quot;*</title></g><g class="pt"><circle cx="477.58730158730157" cy="109.05303702133317" r="14" class="hit"/><circle cx="477.58730158730157" cy="109.05303702133317" r="5" class="dot"/><title>demo-035-notifications · 2026-09-18 · 1.26× · notifications
+my phone after letting the agent run *overnight*</title></g><g class="pt"><circle cx="490.22222222222223" cy="76.39196632166878" r="14" class="hit"/><circle cx="490.22222222222223" cy="76.39196632166878" r="5" class="dot"/><title>demo-036-terminal · 2026-09-18 · 1.65× · terminal
+told my coding agent *&quot;make the tests pass&quot;*</title></g><g class="pt"><circle cx="502.85714285714283" cy="78.92182549555115" r="14" class="hit"/><circle cx="502.85714285714283" cy="78.92182549555115" r="5" class="dot"/><title>demo-037-dialogue · 2026-09-19 · 1.61× · dialogue
+asking AI for *brutally honest* feedback</title></g><g class="pt"><circle cx="515.4920634920635" cy="132.69000562625655" r="14" class="hit"/><circle cx="515.4920634920635" cy="132.69000562625655" r="5" class="dot"/><title>demo-038-keynote · 2026-09-19 · 1.03× · keynote
+every AI launch keynote be like</title></g><g class="pt"><circle cx="528.1269841269841" cy="226" r="14" class="hit"/><circle cx="528.1269841269841" cy="226" r="5" class="dot"/><title>demo-039-keynote · 2026-09-20 · 0.48× · keynote
+every AI launch keynote be like</title></g><g class="pt"><circle cx="540.7619047619048" cy="138.9663726920173" r="14" class="hit"/><circle cx="540.7619047619048" cy="138.9663726920173" r="5" class="dot"/><title>demo-040-pov · 2026-09-20 · 0.98× · pov
+POV: it's 2am and the AI says *&quot;one last change&quot;*</title></g><g class="pt"><circle cx="553.3968253968253" cy="154.92390296723116" r="14" class="hit"/><circle cx="553.3968253968253" cy="154.92390296723116" r="5" class="dot"/><title>demo-041-tier_list · 2026-09-21 · 0.86× · tier_list
+AI phrases ranked by how *scared* you should be</title></g><g class="pt"><circle cx="566.031746031746" cy="174.55732084530553" r="14" class="hit"/><circle cx="566.031746031746" cy="174.55732084530553" r="5" class="dot"/><title>demo-042-nobody · 2026-09-21 · 0.73× · nobody
+asking AI a *yes or no* question</title></g><g class="pt"><circle cx="578.6666666666666" cy="110.65726764223676" r="14" class="hit"/><circle cx="578.6666666666666" cy="110.65726764223676" r="5" class="dot"/><title>demo-043-progress · 2026-09-22 · 1.24× · progress
+watching the agent fix *one* bug</title></g><g class="pt"><circle cx="591.3015873015873" cy="74.94717129682721" r="14" class="hit"/><circle cx="591.3015873015873" cy="74.94717129682721" r="5" class="dot"/><title>demo-044-tier_list · 2026-09-22 · 1.67× · tier_list
+AI phrases ranked by how *scared* you should be</title></g><g class="pt"><circle cx="603.936507936508" cy="186.26353539910585" r="14" class="hit"/><circle cx="603.936507936508" cy="186.26353539910585" r="5" class="dot"/><title>demo-045-keynote · 2026-09-23 · 0.66× · keynote
+every AI launch keynote be like</title></g><g class="pt"><circle cx="616.5714285714286" cy="156.63410242200712" r="14" class="hit"/><circle cx="616.5714285714286" cy="156.63410242200712" r="5" class="dot"/><title>demo-046-nobody · 2026-09-23 · 0.85× · nobody
+asking AI a *yes or no* question</title></g><g class="pt"><circle cx="629.2063492063492" cy="134.1221992865699" r="14" class="hit"/><circle cx="629.2063492063492" cy="134.1221992865699" r="5" class="dot"/><title>demo-047-pov · 2026-09-24 · 1.02× · pov
+POV: it's 2am and the AI says *&quot;one last change&quot;*</title></g><g class="pt"><circle cx="641.8412698412699" cy="159.22189746377157" r="14" class="hit"/><circle cx="641.8412698412699" cy="159.22189746377157" r="5" class="dot"/><title>demo-048-tier_list · 2026-09-24 · 0.83× · tier_list
+AI phrases ranked by how *scared* you should be</title></g><g class="pt"><circle cx="654.4761904761905" cy="149.56444714404847" r="14" class="hit"/><circle cx="654.4761904761905" cy="149.56444714404847" r="5" class="dot"/><title>demo-049-stat · 2026-09-25 · 0.90× · stat
+my AI productivity this week, *audited*</title></g><g class="pt"><circle cx="667.1111111111111" cy="140.23641390022868" r="14" class="hit"/><circle cx="667.1111111111111" cy="140.23641390022868" r="5" class="dot"/><title>demo-050-stat · 2026-09-25 · 0.97× · stat
+my AI productivity this week, *audited*</title></g><g class="pt"><circle cx="679.7460317460317" cy="16" r="14" class="hit"/><circle cx="679.7460317460317" cy="16" r="5" class="dot"/><title>demo-051-chat · 2026-09-26 · 2.71× · chat
+asked the AI to fix *one* typo</title></g><g class="pt"><circle cx="692.3809523809524" cy="103.83737172988342" r="14" class="hit"/><circle cx="692.3809523809524" cy="103.83737172988342" r="5" class="dot"/><title>demo-052-chat · 2026-09-26 · 1.31× · chat
+asked the AI to fix *one* typo</title></g><g class="pt"><circle cx="705.015873015873" cy="135.59878241857186" r="14" class="hit"/><circle cx="705.015873015873" cy="135.59878241857186" r="5" class="dot"/><title>demo-053-tier_list · 2026-09-27 · 1.01× · tier_list
+AI phrases ranked by how *scared* you should be</title></g><g class="pt"><circle cx="717.6507936507936" cy="142.88893532072794" r="14" class="hit"/><circle cx="717.6507936507936" cy="142.88893532072794" r="5" class="dot"/><title>demo-054-terminal · 2026-09-27 · 0.95× · terminal
+told my coding agent *&quot;make the tests pass&quot;*</title></g><g class="pt"><circle cx="730.2857142857142" cy="110.83933579764525" r="14" class="hit"/><circle cx="730.2857142857142" cy="110.83933579764525" r="5" class="dot"/><title>demo-055-pov · 2026-09-28 · 1.24× · pov
+POV: it's 2am and the AI says *&quot;one last change&quot;*</title></g><g class="pt"><circle cx="742.9206349206349" cy="127.69594785778065" r="14" class="hit"/><circle cx="742.9206349206349" cy="127.69594785778065" r="5" class="dot"/><title>demo-056-keynote · 2026-09-28 · 1.08× · keynote
+every AI launch keynote be like</title></g><g class="pt"><circle cx="755.5555555555555" cy="133.53990836643698" r="14" class="hit"/><circle cx="755.5555555555555" cy="133.53990836643698" r="5" class="dot"/><title>demo-057-terminal · 2026-09-29 · 1.02× · terminal
+told my coding agent *&quot;make the tests pass&quot;*</title></g><g class="pt"><circle cx="768.1904761904761" cy="133.92591719387866" r="14" class="hit"/><circle cx="768.1904761904761" cy="133.92591719387866" r="5" class="dot"/><title>demo-058-expectation_reality · 2026-09-29 · 1.02× · expectation_reality
+vibe coding a startup in *one weekend*</title></g><g class="pt"><circle cx="780.8253968253968" cy="148.2071352975906" r="14" class="hit"/><circle cx="780.8253968253968" cy="148.2071352975906" r="5" class="dot"/><title>demo-059-expectation_reality · 2026-09-30 · 0.91× · expectation_reality
+vibe coding a startup in *one weekend*</title></g><g class="pt"><circle cx="793.4603174603175" cy="106.68989106871156" r="14" class="hit"/><circle cx="793.4603174603175" cy="106.68989106871156" r="5" class="dot"/><title>demo-060-nobody · 2026-09-30 · 1.28× · nobody
+asking AI a *yes or no* question</title></g><g class="pt"><circle cx="806.0952380952381" cy="145.29791343434428" r="14" class="hit"/><circle cx="806.0952380952381" cy="145.29791343434428" r="5" class="dot"/><title>demo-061-keynote · 2026-10-01 · 0.93× · keynote
+every AI launch keynote be like</title></g><g class="pt"><circle cx="818.7301587301587" cy="96.31582679285246" r="14" class="hit"/><circle cx="818.7301587301587" cy="96.31582679285246" r="5" class="dot"/><title>demo-062-notifications · 2026-10-01 · 1.39× · notifications
+my phone after letting the agent run *overnight*</title></g><g class="pt"><circle cx="831.3650793650793" cy="147.89996399053854" r="14" class="hit"/><circle cx="831.3650793650793" cy="147.89996399053854" r="5" class="dot"/><title>demo-063-dialogue · 2026-10-02 · 0.91× · dialogue
+asking AI for *brutally honest* feedback</title></g><g class="pt"><circle cx="844" cy="170.72089764177457" r="14" class="hit"/><circle cx="844" cy="170.72089764177457" r="5" class="dot"/><title>demo-064-stat · 2026-10-02 · 0.75× · stat
+my AI productivity this week, *audited*</title></g>
+  <text x="48" y="252" class="tick">2026-09-01</text><text x="844" y="252" class="tick" text-anchor="end">2026-10-02</text></svg>
+  <p class="legend"><span class="sw dot"></span> one reel (hover for details) <span class="sw line"></span> rolling median of last 5</p>
+<h2>What goes with higher virality</h2>
+<p class="muted">Each row: a group vs all other reels. Dot = difference, line = 95% interval. Blue = interval above zero, orange = below, grey = unclear. Groups with n&lt;3 are anecdotes.</p>
+<section><h3>template</h3><svg viewBox="0 0 860 390" role="img"><line x1="439.8925687182631" x2="439.8925687182631" y1="4" y2="380" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">terminal <tspan class="muted">n=6</tspan></text>
+      <line x1="443.2896979204812" x2="589.5114170628218" y1="20" y2="20" class="ci pos"/>
+      <circle cx="516.4005574916516" cy="20" r="6" class="dot pos"/>
+      <text x="750" y="24" class="val">+46% · weak</text>
+      <title>template = terminal: +46% vs other reels (95% CI +2% to +110%), n=6, weak, verdict better</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">chat <tspan class="muted">n=3</tspan></text>
+      <line x1="286.03167587255103" x2="740" y1="50" y2="50" class="ci neu"/>
+      <circle cx="513.0158379362756" cy="50" r="6" class="dot neu"/>
+      <text x="750" y="54" class="val">+44% · weak</text>
+      <title>template = chat: +44% vs other reels (95% CI -53% to +342%), n=3, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="65" width="860" height="30" class="hitrow"/>
+      <text x="220" y="84" text-anchor="end" class="lab">progress <tspan class="muted">n=4</tspan></text>
+      <line x1="394.94588584723203" x2="599.0932419857431" y1="80" y2="80" class="ci neu"/>
+      <circle cx="497.0195639164876" cy="80" r="6" class="dot neu"/>
+      <text x="750" y="84" class="val">+33% · weak</text>
+      <title>template = progress: +33% vs other reels (95% CI -20% to +120%), n=4, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="95" width="860" height="30" class="hitrow"/>
+      <text x="220" y="114" text-anchor="end" class="lab">stat <tspan class="muted">n=7</tspan></text>
+      <line x1="392.1328274248543" x2="509.54488282273655" y1="110" y2="110" class="ci neu"/>
+      <circle cx="450.8388551237954" cy="110" r="6" class="dot neu"/>
+      <text x="750" y="114" class="val">+6% · weak</text>
+      <title>template = stat: +6% vs other reels (95% CI -21% to +41%), n=7, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="125" width="860" height="30" class="hitrow"/>
+      <text x="220" y="144" text-anchor="end" class="lab">nobody <tspan class="muted">n=6</tspan></text>
+      <line x1="367.1344125606146" x2="523.0712761818313" y1="140" y2="140" class="ci neu"/>
+      <circle cx="445.102844371223" cy="140" r="6" class="dot neu"/>
+      <text x="750" y="144" class="val">+3% · weak</text>
+      <title>template = nobody: +3% vs other reels (95% CI -30% to +51%), n=6, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="155" width="860" height="30" class="hitrow"/>
+      <text x="220" y="174" text-anchor="end" class="lab">dialogue <tspan class="muted">n=4</tspan></text>
+      <line x1="322.85045917498053" x2="554.9919394342782" y1="170" y2="170" class="ci neu"/>
+      <circle cx="438.92119930462934" cy="170" r="6" class="dot neu"/>
+      <text x="750" y="174" class="val">+0% · weak</text>
+      <title>template = dialogue: +0% vs other reels (95% CI -44% to +77%), n=4, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="185" width="860" height="30" class="hitrow"/>
+      <text x="220" y="204" text-anchor="end" class="lab">pov <tspan class="muted">n=4</tspan></text>
+      <line x1="349.3462854619685" x2="525.4950693973778" y1="200" y2="200" class="ci neu"/>
+      <circle cx="437.42067742967316" cy="200" r="6" class="dot neu"/>
+      <text x="750" y="204" class="val">-1% · weak</text>
+      <title>template = pov: -1% vs other reels (95% CI -36% to +53%), n=4, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="215" width="860" height="30" class="hitrow"/>
+      <text x="220" y="234" text-anchor="end" class="lab">expectation_reality <tspan class="muted">n=4</tspan></text>
+      <line x1="338.63555690148775" x2="510.29075270585605" y1="230" y2="230" class="ci neu"/>
+      <circle cx="424.46315480367196" cy="230" r="6" class="dot neu"/>
+      <text x="750" y="234" class="val">-7% · weak</text>
+      <title>template = expectation_reality: -7% vs other reels (95% CI -39% to +42%), n=4, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="245" width="860" height="30" class="hitrow"/>
+      <text x="220" y="264" text-anchor="end" class="lab">tier_list <tspan class="muted">n=7</tspan></text>
+      <line x1="358.8734050280423" x2="485.9293332754029" y1="260" y2="260" class="ci neu"/>
+      <circle cx="422.4013691517226" cy="260" r="6" class="dot neu"/>
+      <text x="750" y="264" class="val">-8% · weak</text>
+      <title>template = tier_list: -8% vs other reels (95% CI -33% to +26%), n=7, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="275" width="860" height="30" class="hitrow"/>
+      <text x="220" y="294" text-anchor="end" class="lab">countdown <tspan class="muted">n=3</tspan></text>
+      <line x1="248.24748272383235" x2="575.3085270868564" y1="290" y2="290" class="ci neu"/>
+      <circle cx="411.77800490534435" cy="290" r="6" class="dot neu"/>
+      <text x="750" y="294" class="val">-13% · weak</text>
+      <title>template = countdown: -13% vs other reels (95% CI -61% to +96%), n=3, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="305" width="860" height="30" class="hitrow"/>
+      <text x="220" y="324" text-anchor="end" class="lab">notifications <tspan class="muted">n=6</tspan></text>
+      <line x1="321.71291535601983" x2="477.491202139949" y1="320" y2="320" class="ci neu"/>
+      <circle cx="399.6020587479844" cy="320" r="6" class="dot neu"/>
+      <text x="750" y="324" class="val">-18% · weak</text>
+      <title>template = notifications: -18% vs other reels (95% CI -44% to +20%), n=6, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="335" width="860" height="30" class="hitrow"/>
+      <text x="220" y="354" text-anchor="end" class="lab">keynote <tspan class="muted">n=10</tspan></text>
+      <line x1="337.1564744528909" x2="434.3950769534857" y1="350" y2="350" class="ci neg"/>
+      <circle cx="385.7757757031883" cy="350" r="6" class="dot neg"/>
+      <text x="750" y="354" class="val">-24% · moderate</text>
+      <title>template = keynote: -24% vs other reels (95% CI -40% to -3%), n=10, moderate, verdict worse</title></g></svg></section><section><h3>hook type</h3><svg viewBox="0 0 860 240" role="img"><line x1="483.83439983791675" x2="483.83439983791675" y1="4" y2="230" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">relatable_pain <tspan class="muted">n=44</tspan></text>
+      <line x1="482.6112900060872" x2="515.2474828664006" y1="20" y2="20" class="ci neu"/>
+      <circle cx="498.9293864362438" cy="20" r="6" class="dot neu"/>
+      <text x="750" y="24" class="val">+19% · solid</text>
+      <title>hook_type = relatable_pain: +19% vs other reels (95% CI -1% to +43%), n=44, solid, verdict unclear</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">nobody <tspan class="muted">n=3</tspan></text>
+      <line x1="392.46797800546824" x2="581.1821408545732" y1="50" y2="50" class="ci neu"/>
+      <circle cx="486.8250594300207" cy="50" r="6" class="dot neu"/>
+      <text x="750" y="54" class="val">+3% · weak</text>
+      <title>hook_type = nobody: +3% vs other reels (95% CI -65% to +202%), n=3, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="65" width="860" height="30" class="hitrow"/>
+      <text x="220" y="84" text-anchor="end" class="lab">pov <tspan class="muted">n=2</tspan></text>
+      <line x1="230" x2="740" y1="80" y2="80" class="ci neu"/>
+      <circle cx="485" cy="80" r="6" class="dot neu"/>
+      <text x="750" y="84" class="val">+1% · anecdote</text>
+      <title>hook_type = pov: +1% vs other reels (95% CI -94% to +1728%), n=2, anecdote, verdict unclear</title></g><g class="pt"><rect x="0" y="95" width="860" height="30" class="hitrow"/>
+      <text x="220" y="114" text-anchor="end" class="lab">list <tspan class="muted">n=4</tspan></text>
+      <line x1="429.64215307701716" x2="534.8239315355502" y1="110" y2="110" class="ci neu"/>
+      <circle cx="482.2330423062838" cy="110" r="6" class="dot neu"/>
+      <text x="750" y="114" class="val">-2% · weak</text>
+      <title>hook_type = list: -2% vs other reels (95% CI -46% to +78%), n=4, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="125" width="860" height="30" class="hitrow"/>
+      <text x="220" y="144" text-anchor="end" class="lab">comparison <tspan class="muted">n=2</tspan></text>
+      <line x1="236.90278399775357" x2="723.0209882646791" y1="140" y2="140" class="ci neu"/>
+      <circle cx="479.9618861312164" cy="140" r="6" class="dot neu"/>
+      <text x="750" y="144" class="val">-4% · anecdote</text>
+      <title>hook_type = comparison: -4% vs other reels (95% CI -94% to +1408%), n=2, anecdote, verdict unclear</title></g><g class="pt"><rect x="0" y="155" width="860" height="30" class="hitrow"/>
+      <text x="220" y="174" text-anchor="end" class="lab">reveal <tspan class="muted">n=4</tspan></text>
+      <line x1="418.51999982414424" x2="504.9183480465683" y1="170" y2="170" class="ci neu"/>
+      <circle cx="461.7191739353563" cy="170" r="6" class="dot neu"/>
+      <text x="750" y="174" class="val">-22% · weak</text>
+      <title>hook_type = reveal: -22% vs other reels (95% CI -52% to +27%), n=4, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="185" width="860" height="30" class="hitrow"/>
+      <text x="220" y="204" text-anchor="end" class="lab">story <tspan class="muted">n=5</tspan></text>
+      <line x1="420.8621826658643" x2="493.90328407340013" y1="200" y2="200" class="ci neu"/>
+      <circle cx="457.3827333696322" cy="200" r="6" class="dot neu"/>
+      <text x="750" y="204" class="val">-26% · weak</text>
+      <title>hook_type = story: -26% vs other reels (95% CI -51% to +12%), n=5, weak, verdict unclear</title></g></svg></section><section><h3>topic</h3><svg viewBox="0 0 860 240" role="img"><line x1="485" x2="485" y1="4" y2="230" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">coding-agents <tspan class="muted">n=26</tspan></text>
+      <line x1="462.4300071179533" x2="552.8535655365636" y1="20" y2="20" class="ci neu"/>
+      <circle cx="507.6417863272584" cy="20" r="6" class="dot neu"/>
+      <text x="750" y="24" class="val">+10% · moderate</text>
+      <title>topic = coding-agents: +10% vs other reels (95% CI -9% to +32%), n=26, moderate, verdict unclear</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">ai-productivity <tspan class="muted">n=7</tspan></text>
+      <line x1="426.9763448311186" x2="569.6211002376249" y1="50" y2="50" class="ci neu"/>
+      <circle cx="498.2987225343718" cy="50" r="6" class="dot neu"/>
+      <text x="750" y="54" class="val">+6% · weak</text>
+      <title>topic = ai-productivity: +6% vs other reels (95% CI -21% to +41%), n=7, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="65" width="860" height="30" class="hitrow"/>
+      <text x="220" y="84" text-anchor="end" class="lab">ai-verbosity <tspan class="muted">n=6</tspan></text>
+      <line x1="396.60558978577114" x2="586.0544133731607" y1="80" y2="80" class="ci neu"/>
+      <circle cx="491.33000157946594" cy="80" r="6" class="dot neu"/>
+      <text x="750" y="84" class="val">+3% · weak</text>
+      <title>topic = ai-verbosity: +3% vs other reels (95% CI -30% to +51%), n=6, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="95" width="860" height="30" class="hitrow"/>
+      <text x="220" y="114" text-anchor="end" class="lab">sycophancy <tspan class="muted">n=4</tspan></text>
+      <line x1="342.80469448826113" x2="624.8350580576321" y1="110" y2="110" class="ci neu"/>
+      <circle cx="483.81987627294654" cy="110" r="6" class="dot neu"/>
+      <text x="750" y="114" class="val">+0% · weak</text>
+      <title>topic = sycophancy: +0% vs other reels (95% CI -44% to +77%), n=4, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="125" width="860" height="30" class="hitrow"/>
+      <text x="220" y="144" text-anchor="end" class="lab">vibe-coding <tspan class="muted">n=4</tspan></text>
+      <line x1="361.98212389817195" x2="570.527262953899" y1="140" y2="140" class="ci neu"/>
+      <circle cx="466.2546934260355" cy="140" r="6" class="dot neu"/>
+      <text x="750" y="144" class="val">-7% · weak</text>
+      <title>topic = vibe-coding: -7% vs other reels (95% CI -39% to +42%), n=4, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="155" width="860" height="30" class="hitrow"/>
+      <text x="220" y="174" text-anchor="end" class="lab">context-window <tspan class="muted">n=14</tspan></text>
+      <line x1="401.91433804425924" x2="514.238927529369" y1="170" y2="170" class="ci neu"/>
+      <circle cx="458.0766327868141" cy="170" r="6" class="dot neu"/>
+      <text x="750" y="174" class="val">-10% · moderate</text>
+      <title>topic = context-window: -10% vs other reels (95% CI -29% to +13%), n=14, moderate, verdict unclear</title></g><g class="pt"><rect x="0" y="185" width="860" height="30" class="hitrow"/>
+      <text x="220" y="204" text-anchor="end" class="lab">rate-limits <tspan class="muted">n=3</tspan></text>
+      <line x1="252.1689987548967" x2="649.5178273573945" y1="200" y2="200" class="ci neu"/>
+      <circle cx="450.8434130561456" cy="200" r="6" class="dot neu"/>
+      <text x="750" y="204" class="val">-13% · weak</text>
+      <title>topic = rate-limits: -13% vs other reels (95% CI -61% to +96%), n=3, weak, verdict unclear</title></g></svg></section><section><h3>humor style</h3><svg viewBox="0 0 860 180" role="img"><line x1="485" x2="485" y1="4" y2="170" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">escalation <tspan class="muted">n=30</tspan></text>
+      <line x1="480.8392400915528" x2="565.6843771994436" y1="20" y2="20" class="ci neu"/>
+      <circle cx="523.2618086454981" cy="20" r="6" class="dot neu"/>
+      <text x="750" y="24" class="val">+17% · solid</text>
+      <title>humor_style = escalation: +17% vs other reels (95% CI -2% to +39%), n=30, solid, verdict unclear</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">self_deprecating <tspan class="muted">n=7</tspan></text>
+      <line x1="426.9763448311186" x2="569.6211002376249" y1="50" y2="50" class="ci neu"/>
+      <circle cx="498.2987225343718" cy="50" r="6" class="dot neu"/>
+      <text x="750" y="54" class="val">+6% · weak</text>
+      <title>humor_style = self_deprecating: +6% vs other reels (95% CI -21% to +41%), n=7, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="65" width="860" height="30" class="hitrow"/>
+      <text x="220" y="84" text-anchor="end" class="lab">deadpan <tspan class="muted">n=4</tspan></text>
+      <line x1="342.80469448826113" x2="624.8350580576321" y1="80" y2="80" class="ci neu"/>
+      <circle cx="483.81987627294654" cy="80" r="6" class="dot neu"/>
+      <text x="750" y="84" class="val">+0% · weak</text>
+      <title>humor_style = deadpan: +0% vs other reels (95% CI -44% to +77%), n=4, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="95" width="860" height="30" class="hitrow"/>
+      <text x="220" y="114" text-anchor="end" class="lab">relatable <tspan class="muted">n=13</tspan></text>
+      <line x1="421.9884388491525" x2="522.2296955737052" y1="110" y2="110" class="ci neu"/>
+      <circle cx="472.10906721142885" cy="110" r="6" class="dot neu"/>
+      <text x="750" y="114" class="val">-5% · moderate</text>
+      <title>humor_style = relatable: -5% vs other reels (95% CI -23% to +16%), n=13, moderate, verdict unclear</title></g><g class="pt"><rect x="0" y="125" width="860" height="30" class="hitrow"/>
+      <text x="220" y="144" text-anchor="end" class="lab">sarcastic <tspan class="muted">n=10</tspan></text>
+      <line x1="360.1851759323845" x2="478.3210574887006" y1="140" y2="140" class="ci neg"/>
+      <circle cx="419.2531167105426" cy="140" r="6" class="dot neg"/>
+      <text x="750" y="144" class="val">-24% · moderate</text>
+      <title>humor_style = sarcastic: -24% vs other reels (95% CI -40% to -3%), n=10, moderate, verdict worse</title></g></svg></section><section><h3>text density</h3><svg viewBox="0 0 860 90" role="img"><line x1="485" x2="485" y1="4" y2="80" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">medium <tspan class="muted">n=32</tspan></text>
+      <line x1="464.43196847820377" x2="549.1270553855355" y1="20" y2="20" class="ci neu"/>
+      <circle cx="506.77951193186965" cy="20" r="6" class="dot neu"/>
+      <text x="750" y="24" class="val">+9% · solid</text>
+      <title>text_density = medium: +9% vs other reels (95% CI -8% to +30%), n=32, solid, verdict unclear</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">low <tspan class="muted">n=32</tspan></text>
+      <line x1="420.8729446144645" x2="505.56803152179623" y1="50" y2="50" class="ci neu"/>
+      <circle cx="463.2204880681303" cy="50" r="6" class="dot neu"/>
+      <text x="750" y="54" class="val">-8% · solid</text>
+      <title>text_density = low: -8% vs other reels (95% CI -23% to +9%), n=32, solid, verdict unclear</title></g></svg></section><section><h3>length</h3><svg viewBox="0 0 860 120" role="img"><line x1="485" x2="485" y1="4" y2="110" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">10-14s <tspan class="muted">n=31</tspan></text>
+      <line x1="472.30909504091255" x2="556.6970241413675" y1="20" y2="20" class="ci neu"/>
+      <circle cx="514.5030595911401" cy="20" r="6" class="dot neu"/>
+      <text x="750" y="24" class="val">+13% · solid</text>
+      <title>length = 10-14s: +13% vs other reels (95% CI -5% to +34%), n=31, solid, verdict unclear</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">5-9s <tspan class="muted">n=16</tspan></text>
+      <line x1="448.59133352137553" x2="549.2700576140229" y1="50" y2="50" class="ci neu"/>
+      <circle cx="498.9306955676992" cy="50" r="6" class="dot neu"/>
+      <text x="750" y="54" class="val">+6% · moderate</text>
+      <title>length = 5-9s: +6% vs other reels (95% CI -14% to +30%), n=16, moderate, verdict unclear</title></g><g class="pt"><rect x="0" y="65" width="860" height="30" class="hitrow"/>
+      <text x="220" y="84" text-anchor="end" class="lab">15-20s <tspan class="muted">n=17</tspan></text>
+      <line x1="385.8964224359135" x2="481.7746560178306" y1="80" y2="80" class="ci neg"/>
+      <circle cx="433.835539226872" cy="80" r="6" class="dot neg"/>
+      <text x="750" y="84" class="val">-19% · moderate</text>
+      <title>length = 15-20s: -19% vs other reels (95% CI -33% to -1%), n=17, moderate, verdict worse</title></g></svg></section><section><h3>loop</h3><svg viewBox="0 0 860 90" role="img"><line x1="485" x2="485" y1="4" y2="80" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">yes <tspan class="muted">n=22</tspan></text>
+      <line x1="486.611342129467" x2="574.068457360436" y1="20" y2="20" class="ci pos"/>
+      <circle cx="530.3398997449515" cy="20" r="6" class="dot pos"/>
+      <text x="750" y="24" class="val">+20% · moderate</text>
+      <title>loop = yes: +20% vs other reels (95% CI +1% to +44%), n=22, moderate, verdict better</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">no <tspan class="muted">n=42</tspan></text>
+      <line x1="395.93154263956404" x2="483.38865787053294" y1="50" y2="50" class="ci neg"/>
+      <circle cx="439.6601002550485" cy="50" r="6" class="dot neg"/>
+      <text x="750" y="54" class="val">-17% · solid</text>
+      <title>loop = no: -17% vs other reels (95% CI -30% to -1%), n=42, solid, verdict worse</title></g></svg></section><section><h3>has twist</h3><svg viewBox="0 0 860 90" role="img"><line x1="485" x2="485" y1="4" y2="80" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">no <tspan class="muted">n=6</tspan></text>
+      <line x1="396.60558978577114" x2="586.0544133731607" y1="20" y2="20" class="ci neu"/>
+      <circle cx="491.33000157946594" cy="20" r="6" class="dot neu"/>
+      <text x="750" y="24" class="val">+3% · weak</text>
+      <title>has_twist = no: +3% vs other reels (95% CI -30% to +51%), n=6, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">yes <tspan class="muted">n=58</tspan></text>
+      <line x1="383.94558662683926" x2="573.3944102142289" y1="50" y2="50" class="ci neu"/>
+      <circle cx="478.66999842053406" cy="50" r="6" class="dot neu"/>
+      <text x="750" y="54" class="val">-3% · solid</text>
+      <title>has_twist = yes: -3% vs other reels (95% CI -34% to +43%), n=58, solid, verdict unclear</title></g></svg></section><section><h3>post slot</h3><svg viewBox="0 0 860 90" role="img"><line x1="485" x2="485" y1="4" y2="80" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">midday <tspan class="muted">n=32</tspan></text>
+      <line x1="458.04248560835345" x2="543.0718125189882" y1="20" y2="20" class="ci neu"/>
+      <circle cx="500.55714906367086" cy="20" r="6" class="dot neu"/>
+      <text x="750" y="24" class="val">+7% · solid</text>
+      <title>post_slot = midday: +7% vs other reels (95% CI -10% to +27%), n=32, solid, verdict unclear</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">evening <tspan class="muted">n=32</tspan></text>
+      <line x1="426.92818748101183" x2="511.95751439164655" y1="50" y2="50" class="ci neu"/>
+      <circle cx="469.4428509363292" cy="50" r="6" class="dot neu"/>
+      <text x="750" y="54" class="val">-6% · solid</text>
+      <title>post_slot = evening: -6% vs other reels (95% CI -21% to +12%), n=32, solid, verdict unclear</title></g></svg></section><section><h3>weekday</h3><svg viewBox="0 0 860 240" role="img"><line x1="485" x2="485" y1="4" y2="230" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">sat <tspan class="muted">n=8</tspan></text>
+      <line x1="440.05303163227666" x2="632.4381564731173" y1="20" y2="20" class="ci neu"/>
+      <circle cx="536.2455940526969" cy="20" r="6" class="dot neu"/>
+      <text x="750" y="24" class="val">+23% · weak</text>
+      <title>weekday = sat: +23% vs other reels (95% CI -17% to +82%), n=8, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">tue <tspan class="muted">n=10</tspan></text>
+      <line x1="448.59814266116325" x2="562.4427085296295" y1="50" y2="50" class="ci neu"/>
+      <circle cx="505.5204255953963" cy="50" r="6" class="dot neu"/>
+      <text x="750" y="54" class="val">+9% · moderate</text>
+      <title>weekday = tue: +9% vs other reels (95% CI -14% to +37%), n=10, moderate, verdict unclear</title></g><g class="pt"><rect x="0" y="65" width="860" height="30" class="hitrow"/>
+      <text x="220" y="84" text-anchor="end" class="lab">fri <tspan class="muted">n=10</tspan></text>
+      <line x1="439.9423369030809" x2="552.8482965313411" y1="80" y2="80" class="ci neu"/>
+      <circle cx="496.395316717211" cy="80" r="6" class="dot neu"/>
+      <text x="750" y="84" class="val">+5% · moderate</text>
+      <title>weekday = fri: +5% vs other reels (95% CI -17% to +32%), n=10, moderate, verdict unclear</title></g><g class="pt"><rect x="0" y="95" width="860" height="30" class="hitrow"/>
+      <text x="220" y="114" text-anchor="end" class="lab">thu <tspan class="muted">n=10</tspan></text>
+      <line x1="427.9547803355151" x2="547.6358454474405" y1="110" y2="110" class="ci neu"/>
+      <circle cx="487.7953128914778" cy="110" r="6" class="dot neu"/>
+      <text x="750" y="114" class="val">+1% · moderate</text>
+      <title>weekday = thu: +1% vs other reels (95% CI -21% to +29%), n=10, moderate, verdict unclear</title></g><g class="pt"><rect x="0" y="125" width="860" height="30" class="hitrow"/>
+      <text x="220" y="144" text-anchor="end" class="lab">sun <tspan class="muted">n=8</tspan></text>
+      <line x1="392.2826434859994" x2="558.0393893910707" y1="140" y2="140" class="ci neu"/>
+      <circle cx="475.1610164385351" cy="140" r="6" class="dot neu"/>
+      <text x="750" y="144" class="val">-4% · weak</text>
+      <title>weekday = sun: -4% vs other reels (95% CI -31% to +35%), n=8, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="155" width="860" height="30" class="hitrow"/>
+      <text x="220" y="174" text-anchor="end" class="lab">mon <tspan class="muted">n=8</tspan></text>
+      <line x1="386.84342279652356" x2="522.9390775528359" y1="170" y2="170" class="ci neu"/>
+      <circle cx="454.8912501746797" cy="170" r="6" class="dot neu"/>
+      <text x="750" y="174" class="val">-12% · weak</text>
+      <title>weekday = mon: -12% vs other reels (95% CI -33% to +17%), n=8, weak, verdict unclear</title></g><g class="pt"><rect x="0" y="185" width="860" height="30" class="hitrow"/>
+      <text x="220" y="204" text-anchor="end" class="lab">wed <tspan class="muted">n=10</tspan></text>
+      <line x1="374.9451753254932" x2="506.8866343466015" y1="200" y2="200" class="ci neu"/>
+      <circle cx="440.91590483604733" cy="200" r="6" class="dot neu"/>
+      <text x="750" y="204" class="val">-16% · moderate</text>
+      <title>weekday = wed: -16% vs other reels (95% CI -36% to +9%), n=10, moderate, verdict unclear</title></g></svg></section><section><h3>series</h3><svg viewBox="0 0 860 90" role="img"><line x1="485" x2="485" y1="4" y2="80" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">agent-diaries <tspan class="muted">n=16</tspan></text>
+      <line x1="471.1634364381537" x2="582.0898581333596" y1="20" y2="20" class="ci neu"/>
+      <circle cx="526.6266472857567" cy="20" r="6" class="dot neu"/>
+      <text x="750" y="24" class="val">+18% · moderate</text>
+      <title>series = agent-diaries: +18% vs other reels (95% CI -5% to +49%), n=16, moderate, verdict unclear</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">none <tspan class="muted">n=48</tspan></text>
+      <line x1="387.9101418666404" x2="498.8365635618463" y1="50" y2="50" class="ci neu"/>
+      <circle cx="443.3733527142433" cy="50" r="6" class="dot neu"/>
+      <text x="750" y="54" class="val">-16% · solid</text>
+      <title>series = none: -16% vs other reels (95% CI -33% to +6%), n=48, solid, verdict unclear</title></g></svg></section><section><h3>arm</h3><svg viewBox="0 0 860 90" role="img"><line x1="485" x2="485" y1="4" y2="80" class="zero"/><g class="pt"><rect x="0" y="5" width="860" height="30" class="hitrow"/>
+      <text x="220" y="24" text-anchor="end" class="lab">explore <tspan class="muted">n=18</tspan></text>
+      <line x1="459.8642143607617" x2="556.6327103124605" y1="20" y2="20" class="ci neu"/>
+      <circle cx="508.2484623366111" cy="20" r="6" class="dot neu"/>
+      <text x="750" y="24" class="val">+10% · moderate</text>
+      <title>arm = explore: +10% vs other reels (95% CI -10% to +34%), n=18, moderate, verdict unclear</title></g><g class="pt"><rect x="0" y="35" width="860" height="30" class="hitrow"/>
+      <text x="220" y="54" text-anchor="end" class="lab">exploit <tspan class="muted">n=46</tspan></text>
+      <line x1="413.3672896875395" x2="510.1357856392383" y1="50" y2="50" class="ci neu"/>
+      <circle cx="461.75153766338883" cy="50" r="6" class="dot neu"/>
+      <text x="750" y="54" class="val">-9% · solid</text>
+      <title>arm = exploit: -9% vs other reels (95% CI -25% to +11%), n=46, solid, verdict unclear</title></g></svg></section>
+<h2>Hypotheses</h2><table><thead><tr><th>status</th><th>hypothesis</th><th>evidence</th></tr></thead><tbody><tr><td><span class="badge open">open</span></td><td>Reels with template &quot;nobody&quot; score above the account median</td><td>n=6 test vs 58 other reels; virality +3% (95% CI -30% to +51%).</td></tr><tr><td><span class="badge refuted">refuted</span></td><td>Reels with template &quot;keynote&quot; score above the account median</td><td>n=10 test vs 54 other reels; virality -24% (95% CI -40% to -3%).</td></tr><tr><td><span class="badge open">open</span></td><td>Reels with template &quot;tier_list&quot; score above the account median</td><td>n=7 test vs 57 other reels; virality -8% (95% CI -33% to +26%).</td></tr><tr><td><span class="badge supported">supported</span></td><td>Reels with template &quot;terminal&quot; score above the account median</td><td>n=6 test vs 58 other reels; virality +46% (95% CI +2% to +110%).</td></tr><tr><td><span class="badge open">open</span></td><td>Reels with template &quot;stat&quot; score above the account median</td><td>n=7 test vs 57 other reels; virality +6% (95% CI -21% to +41%).</td></tr><tr><td><span class="badge open">open</span></td><td>Reels with template &quot;dialogue&quot; score above the account median</td><td>n=4 test vs 60 other reels; virality 0% (95% CI -44% to +77%).</td></tr><tr><td><span class="badge open">open</span></td><td>Reels with template &quot;notifications&quot; score above the account median</td><td>n=6 test vs 58 other reels; virality -18% (95% CI -44% to +20%).</td></tr><tr><td><span class="badge open">open</span></td><td>Reels with template &quot;progress&quot; score above the account median</td><td>n=4 test vs 60 other reels; virality +33% (95% CI -20% to +120%).</td></tr><tr><td><span class="badge open">open</span></td><td>Reels with template &quot;countdown&quot; score above the account median</td><td>n=3 test vs 61 other reels; virality -13% (95% CI -61% to +96%).</td></tr></tbody></table>
+<h2>All scored reels</h2><table><thead><tr><th>reel</th><th>posted</th><th class="r">virality</th><th>template</th><th>hook</th></tr></thead><tbody><tr><td><code>demo-051-chat</code></td><td>2026-09-26</td><td class="r">2.71×</td><td>chat</td><td>asked the AI to fix *one* typo</td></tr><tr><td><code>demo-011-terminal</code></td><td>2026-09-06</td><td class="r">2.07×</td><td>terminal</td><td>told my coding agent *&quot;make the tests pass&quot;*</td></tr><tr><td><code>demo-010-nobody</code></td><td>2026-09-05</td><td class="r">1.95×</td><td>nobody</td><td>asking AI a *yes or no* question</td></tr><tr><td><code>demo-034-terminal</code></td><td>2026-09-17</td><td class="r">1.90×</td><td>terminal</td><td>told my coding agent *&quot;make the tests pass&quot;*</td></tr><tr><td><code>demo-017-progress</code></td><td>2026-09-09</td><td class="r">1.88×</td><td>progress</td><td>watching the agent fix *one* bug</td></tr><tr><td><code>demo-044-tier_list</code></td><td>2026-09-22</td><td class="r">1.67×</td><td>tier_list</td><td>AI phrases ranked by how *scared* you should be</td></tr><tr><td><code>demo-007-stat</code></td><td>2026-09-04</td><td class="r">1.65×</td><td>stat</td><td>my AI productivity this week, *audited*</td></tr><tr><td><code>demo-036-terminal</code></td><td>2026-09-18</td><td class="r">1.65×</td><td>terminal</td><td>told my coding agent *&quot;make the tests pass&quot;*</td></tr><tr><td><code>demo-037-dialogue</code></td><td>2026-09-19</td><td class="r">1.61×</td><td>dialogue</td><td>asking AI for *brutally honest* feedback</td></tr><tr><td><code>demo-016-terminal</code></td><td>2026-09-08</td><td class="r">1.54×</td><td>terminal</td><td>told my coding agent *&quot;make the tests pass&quot;*</td></tr><tr><td><code>demo-029-progress</code></td><td>2026-09-15</td><td class="r">1.44×</td><td>progress</td><td>watching the agent fix *one* bug</td></tr><tr><td><code>demo-062-notifications</code></td><td>2026-10-01</td><td class="r">1.39×</td><td>notifications</td><td>my phone after letting the agent run *overnight*</td></tr><tr><td><code>demo-013-stat</code></td><td>2026-09-07</td><td class="r">1.35×</td><td>stat</td><td>my AI productivity this week, *audited*</td></tr><tr><td><code>demo-052-chat</code></td><td>2026-09-26</td><td class="r">1.31×</td><td>chat</td><td>asked the AI to fix *one* typo</td></tr><tr><td><code>demo-060-nobody</code></td><td>2026-09-30</td><td class="r">1.28×</td><td>nobody</td><td>asking AI a *yes or no* question</td></tr><tr><td><code>demo-035-notifications</code></td><td>2026-09-18</td><td class="r">1.26×</td><td>notifications</td><td>my phone after letting the agent run *overnight*</td></tr><tr><td><code>demo-043-progress</code></td><td>2026-09-22</td><td class="r">1.24×</td><td>progress</td><td>watching the agent fix *one* bug</td></tr><tr><td><code>demo-055-pov</code></td><td>2026-09-28</td><td class="r">1.24×</td><td>pov</td><td>POV: it's 2am and the AI says *&quot;one last change&quot;*</td></tr><tr><td><code>demo-006-tier_list</code></td><td>2026-09-03</td><td class="r">1.18×</td><td>tier_list</td><td>AI phrases ranked by how *scared* you should be</td></tr><tr><td><code>demo-025-stat</code></td><td>2026-09-13</td><td class="r">1.17×</td><td>stat</td><td>my AI productivity this week, *audited*</td></tr><tr><td><code>demo-033-countdown</code></td><td>2026-09-17</td><td class="r">1.13×</td><td>countdown</td><td>4 stages of asking AI to fix *one* bug</td></tr><tr><td><code>demo-014-dialogue</code></td><td>2026-09-07</td><td class="r">1.13×</td><td>dialogue</td><td>asking AI for *brutally honest* feedback</td></tr><tr><td><code>demo-009-keynote</code></td><td>2026-09-05</td><td class="r">1.12×</td><td>keynote</td><td>every AI launch keynote be like</td></tr><tr><td><code>demo-021-keynote</code></td><td>2026-09-11</td><td class="r">1.09×</td><td>keynote</td><td>every AI launch keynote be like</td></tr><tr><td><code>demo-002-expectation_reality</code></td><td>2026-09-01</td><td class="r">1.09×</td><td>expectation_reality</td><td>vibe coding a startup in *one weekend*</td></tr><tr><td><code>demo-056-keynote</code></td><td>2026-09-28</td><td class="r">1.08×</td><td>keynote</td><td>every AI launch keynote be like</td></tr><tr><td><code>demo-022-nobody</code></td><td>2026-09-11</td><td class="r">1.07×</td><td>nobody</td><td>asking AI a *yes or no* question</td></tr><tr><td><code>demo-012-stat</code></td><td>2026-09-06</td><td class="r">1.06×</td><td>stat</td><td>my AI productivity this week, *audited*</td></tr><tr><td><code>demo-038-keynote</code></td><td>2026-09-19</td><td class="r">1.03×</td><td>keynote</td><td>every AI launch keynote be like</td></tr><tr><td><code>demo-057-terminal</code></td><td>2026-09-29</td><td class="r">1.02×</td><td>terminal</td><td>told my coding agent *&quot;make the tests pass&quot;*</td></tr><tr><td><code>demo-058-expectation_reality</code></td><td>2026-09-29</td><td class="r">1.02×</td><td>expectation_reality</td><td>vibe coding a startup in *one weekend*</td></tr><tr><td><code>demo-047-pov</code></td><td>2026-09-24</td><td class="r">1.02×</td><td>pov</td><td>POV: it's 2am and the AI says *&quot;one last change&quot;*</td></tr><tr><td><code>demo-053-tier_list</code></td><td>2026-09-27</td><td class="r">1.01×</td><td>tier_list</td><td>AI phrases ranked by how *scared* you should be</td></tr><tr><td><code>demo-019-countdown</code></td><td>2026-09-10</td><td class="r">0.99×</td><td>countdown</td><td>4 stages of asking AI to fix *one* bug</td></tr><tr><td><code>demo-031-progress</code></td><td>2026-09-16</td><td class="r">0.99×</td><td>progress</td><td>watching the agent fix *one* bug</td></tr><tr><td><code>demo-040-pov</code></td><td>2026-09-20</td><td class="r">0.98×</td><td>pov</td><td>POV: it's 2am and the AI says *&quot;one last change&quot;*</td></tr><tr><td><code>demo-050-stat</code></td><td>2026-09-25</td><td class="r">0.97×</td><td>stat</td><td>my AI productivity this week, *audited*</td></tr><tr><td><code>demo-054-terminal</code></td><td>2026-09-27</td><td class="r">0.95×</td><td>terminal</td><td>told my coding agent *&quot;make the tests pass&quot;*</td></tr><tr><td><code>demo-061-keynote</code></td><td>2026-10-01</td><td class="r">0.93×</td><td>keynote</td><td>every AI launch keynote be like</td></tr><tr><td><code>demo-063-dialogue</code></td><td>2026-10-02</td><td class="r">0.91×</td><td>dialogue</td><td>asking AI for *brutally honest* feedback</td></tr><tr><td><code>demo-059-expectation_reality</code></td><td>2026-09-30</td><td class="r">0.91×</td><td>expectation_reality</td><td>vibe coding a startup in *one weekend*</td></tr><tr><td><code>demo-049-stat</code></td><td>2026-09-25</td><td class="r">0.90×</td><td>stat</td><td>my AI productivity this week, *audited*</td></tr><tr><td><code>demo-008-pov</code></td><td>2026-09-04</td><td class="r">0.89×</td><td>pov</td><td>POV: it's 2am and the AI says *&quot;one last change&quot;*</td></tr><tr><td><code>demo-026-chat</code></td><td>2026-09-13</td><td class="r">0.88×</td><td>chat</td><td>asked the AI to fix *one* typo</td></tr><tr><td><code>demo-001-nobody</code></td><td>2026-09-01</td><td class="r">0.86×</td><td>nobody</td><td>asking AI a *yes or no* question</td></tr><tr><td><code>demo-005-expectation_reality</code></td><td>2026-09-03</td><td class="r">0.86×</td><td>expectation_reality</td><td>vibe coding a startup in *one weekend*</td></tr><tr><td><code>demo-041-tier_list</code></td><td>2026-09-21</td><td class="r">0.86×</td><td>tier_list</td><td>AI phrases ranked by how *scared* you should be</td></tr><tr><td><code>demo-046-nobody</code></td><td>2026-09-23</td><td class="r">0.85×</td><td>nobody</td><td>asking AI a *yes or no* question</td></tr><tr><td><code>demo-003-keynote</code></td><td>2026-09-02</td><td class="r">0.84×</td><td>keynote</td><td>every AI launch keynote be like</td></tr><tr><td><code>demo-015-notifications</code></td><td>2026-09-08</td><td class="r">0.84×</td><td>notifications</td><td>my phone after letting the agent run *overnight*</td></tr><tr><td><code>demo-048-tier_list</code></td><td>2026-09-24</td><td class="r">0.83×</td><td>tier_list</td><td>AI phrases ranked by how *scared* you should be</td></tr><tr><td><code>demo-004-tier_list</code></td><td>2026-09-02</td><td class="r">0.82×</td><td>tier_list</td><td>AI phrases ranked by how *scared* you should be</td></tr><tr><td><code>demo-030-notifications</code></td><td>2026-09-15</td><td class="r">0.77×</td><td>notifications</td><td>my phone after letting the agent run *overnight*</td></tr><tr><td><code>demo-064-stat</code></td><td>2026-10-02</td><td class="r">0.75×</td><td>stat</td><td>my AI productivity this week, *audited*</td></tr><tr><td><code>demo-042-nobody</code></td><td>2026-09-21</td><td class="r">0.73×</td><td>nobody</td><td>asking AI a *yes or no* question</td></tr><tr><td><code>demo-027-keynote</code></td><td>2026-09-14</td><td class="r">0.73×</td><td>keynote</td><td>every AI launch keynote be like</td></tr><tr><td><code>demo-023-dialogue</code></td><td>2026-09-12</td><td class="r">0.68×</td><td>dialogue</td><td>asking AI for *brutally honest* feedback</td></tr><tr><td><code>demo-018-countdown</code></td><td>2026-09-09</td><td class="r">0.66×</td><td>countdown</td><td>4 stages of asking AI to fix *one* bug</td></tr><tr><td><code>demo-045-keynote</code></td><td>2026-09-23</td><td class="r">0.66×</td><td>keynote</td><td>every AI launch keynote be like</td></tr><tr><td><code>demo-020-notifications</code></td><td>2026-09-10</td><td class="r">0.66×</td><td>notifications</td><td>my phone after letting the agent run *overnight*</td></tr><tr><td><code>demo-024-tier_list</code></td><td>2026-09-12</td><td class="r">0.64×</td><td>tier_list</td><td>AI phrases ranked by how *scared* you should be</td></tr><tr><td><code>demo-028-keynote</code></td><td>2026-09-14</td><td class="r">0.61×</td><td>keynote</td><td>every AI launch keynote be like</td></tr><tr><td><code>demo-032-notifications</code></td><td>2026-09-16</td><td class="r">0.56×</td><td>notifications</td><td>my phone after letting the agent run *overnight*</td></tr><tr><td><code>demo-039-keynote</code></td><td>2026-09-20</td><td class="r">0.48×</td><td>keynote</td><td>every AI launch keynote be like</td></tr></tbody></table>
+</main></body></html>

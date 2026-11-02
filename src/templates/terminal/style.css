@@ -1,0 +1,34 @@
+.tpl-terminal .term {
+  position: absolute; inset: 0; background: #050807; border: 3px solid var(--line); border-radius: 26px; overflow: hidden;
+}
+.tpl-terminal .tbar {
+  height: 64px; display: flex; align-items: center; gap: 12px; padding: 0 24px;
+  background: var(--panel-2); border-bottom: 2px solid var(--line);
+}
+.tpl-terminal .tbar i { width: 20px; height: 20px; border-radius: 50%; display: block; }
+.tpl-terminal .tbar i:nth-child(1) { background: #ff5f57; }
+.tpl-terminal .tbar i:nth-child(2) { background: #febc2e; }
+.tpl-terminal .tbar i:nth-child(3) { background: #28c840; }
+.tpl-terminal .ttitle { margin-left: 16px; font: 500 28px/1 var(--font-mono); color: var(--fg-dim); }
+.tpl-terminal .tbody { position: absolute; left: 0; right: 0; top: 66px; bottom: 0; overflow: hidden; }
+.tpl-terminal .tlines { position: absolute; left: 30px; right: 30px; top: 22px; }
+.tpl-terminal .tl {
+  font: 500 42px/1.3 var(--font-mono); color: var(--fg); margin-bottom: 16px;
+  white-space: pre-wrap; word-break: break-word; display: flex; gap: 0.55em;
+}
+.tpl-terminal .tl .pre { flex: none; }
+.tpl-terminal .tl.cmd .pre { color: var(--accent); font-weight: 800; }
+.tpl-terminal .tl.cmd { color: #fff; font-weight: 800; }
+.tpl-terminal .tl.agent .pre { color: var(--coral); }
+.tpl-terminal .tl.out { color: var(--fg-dim); }
+.tpl-terminal .tl.error { color: var(--red); font-weight: 800; }
+.tpl-terminal .tl.success { color: var(--green); font-weight: 800; }
+.tpl-terminal .tl.warn { color: var(--amber); }
+.tpl-terminal .cursor { display: inline-block; width: 0.6em; height: 1.05em; background: var(--accent); vertical-align: -0.15em; margin-left: 2px; }
+.tpl-terminal .final {
+  position: absolute; left: 20px; right: 20px; top: 40%;
+  background: var(--red); color: #fff; font-weight: 900; text-align: center; line-height: 1.1;
+  padding: 30px 30px; border-radius: 22px; box-shadow: 0 20px 60px rgba(0,0,0,.6); letter-spacing: -0.01em;
+}
+.tpl-terminal .final em { color: #ffe9a8; }
+#fx .redtint { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 35%, rgba(255, 30, 60, 0.55) 100%); }

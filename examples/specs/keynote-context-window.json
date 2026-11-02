@@ -1,0 +1,43 @@
+{
+  "id": "keynote-context-window",
+  "template": "keynote",
+  "hook": "every AI launch keynote be like",
+  "duration_s": 14,
+  "loop": false,
+  "accent": "purple",
+  "data": {
+    "presenter": "launch event · 10:00",
+    "product": "Model 9 Ultra",
+    "slides": [
+      { "kind": "title", "text": "our smartest model ever" },
+      { "kind": "stat", "text": "10M tokens", "sub": "of context window" },
+      { "kind": "bullet", "text": "Remembers your *entire* codebase" },
+      { "kind": "one_more_thing", "text": "Still forgets what you said *2 messages ago*" }
+    ]
+  },
+  "features": {
+    "hook_type": "reveal",
+    "topic": "context-window",
+    "humor_style": "sarcastic",
+    "has_twist": true,
+    "planned_post_time": "19:35",
+    "series": null
+  },
+  "caption": {
+    "variants": [
+      {
+        "hook_line": "10 million tokens of context and not one of them is the variable name I gave it",
+        "hashtags": ["#aimodels", "#llm", "#claudeai", "#techhumor"],
+        "question": "What's the shortest time your AI has forgotten something?"
+      },
+      {
+        "hook_line": "\"remembers everything\" (terms and conditions apply)",
+        "hashtags": ["#ainews", "#aihumor", "#chatgpt"],
+        "question": "Which launch slide made you laugh the most this year?"
+      }
+    ],
+    "selected": 0
+  },
+  "experiment": { "arm": "explore", "hypothesis": "Parody keynotes about AI hype get more saves than coding-pain reels" },
+  "source": "example"
+}

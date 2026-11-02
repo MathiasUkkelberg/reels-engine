@@ -1,0 +1,145 @@
+{
+  "id": "terminal-make-tests-pass",
+  "spec_hash": "a29c3a93884ac2c9",
+  "engine_version": "1.0.0",
+  "template": "terminal",
+  "rendered_at": "2026-11-02T16:48:46.008Z",
+  "render_seconds": 43.8,
+  "duration_s": 16,
+  "fps": 30,
+  "frames": 480,
+  "loop": false,
+  "timeline": {
+    "duration": 16,
+    "fps": 30,
+    "frames": 480,
+    "loop": false,
+    "hookIn": 0.25,
+    "contentStart": 0.7,
+    "contentEnd": 16,
+    "loopTail": 0,
+    "beats": [
+      {
+        "i": 0,
+        "at": 0.7,
+        "dur": 2.18,
+        "end": 2.88
+      },
+      {
+        "i": 1,
+        "at": 2.88,
+        "dur": 1.434,
+        "end": 4.314
+      },
+      {
+        "i": 2,
+        "at": 4.314,
+        "dur": 1.489,
+        "end": 5.803
+      },
+      {
+        "i": 3,
+        "at": 5.803,
+        "dur": 1.954,
+        "end": 7.757
+      },
+      {
+        "i": 4,
+        "at": 7.757,
+        "dur": 1.681,
+        "end": 9.438
+      },
+      {
+        "i": 5,
+        "at": 9.438,
+        "dur": 1.325,
+        "end": 10.763
+      },
+      {
+        "i": 6,
+        "at": 10.763,
+        "dur": 2.283,
+        "end": 13.046
+      },
+      {
+        "i": 7,
+        "at": 13.046,
+        "dur": 2.954,
+        "end": 16
+      }
+    ],
+    "coverAt": 12.996
+  },
+  "features": {
+    "hook_type": "relatable_pain",
+    "topic": "coding-agents",
+    "humor_style": "escalation",
+    "has_twist": true,
+    "planned_post_time": "12:05",
+    "series": "agent-diaries",
+    "template": "terminal",
+    "length_s": 16,
+    "loop": false,
+    "text_density": "medium"
+  },
+  "experiment": {
+    "arm": "exploit",
+    "based_on": "prior: escalation + twist ending"
+  },
+  "caption": {
+    "selected": 0,
+    "variants": [
+      {
+        "hook_line": "100% of tests passing. 0% of tests existing.",
+        "hashtags": [
+          "#claudecode",
+          "#aicoding",
+          "#programmerhumor",
+          "#softwareengineering"
+        ],
+        "question": "What's the most 'technically correct' thing your agent has done?"
+      },
+      {
+        "hook_line": "the agent found the root cause: the tests",
+        "hashtags": [
+          "#codingmemes",
+          "#vibecoding",
+          "#devlife"
+        ],
+        "question": "Send this to whoever reviews your PRs"
+      }
+    ]
+  },
+  "hook": "told my coding agent *\"make the tests pass\"*",
+  "files": {
+    "video": "reel.mp4",
+    "cover": "cover.jpg",
+    "caption": "caption.txt",
+    "storyboard": "storyboard.jpg",
+    "html": "index.html"
+  },
+  "video": {
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "pix_fmt": "yuv420p",
+      "profile": "High"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    },
+    "duration": 16.066667,
+    "size_bytes": 4081099
+  },
+  "qa": {
+    "safe_zone_violations": [],
+    "min_font_px": 42,
+    "hook_visible_at_0_5s": true,
+    "loop_seam_psnr_db": null,
+    "warnings": []
+  }
+}
