@@ -3,7 +3,9 @@ Reel.register('chat', {
   build(root, ctx) {
     const { R, data, beats } = ctx;
     const head = R.el('div', 'chat-head', root);
-    R.el('div', 'chat-av', head, '✳');
+    // Generic AI avatar: an 8-spoke spark drawn in SVG (no emoji font differences between machines).
+    R.el('div', 'chat-av', head, '<svg width="44" height="44" viewBox="-22 -22 44 44"><g stroke="#03140b" stroke-width="5" stroke-linecap="round">' +
+      [0, 45, 90, 135].map((a) => `<line x1="0" y1="-17" x2="0" y2="17" transform="rotate(${a})"/>`).join('') + '</g></svg>');
     const meta = R.el('div', 'chat-meta', head);
     R.el('div', 'chat-name', meta, R.rich(data.ai_name));
     const status = R.el('div', 'chat-status small-ok', meta, 'online');
@@ -81,7 +83,7 @@ Reel.register('chat', {
         const prev = offsetAt(e - 1e-3);
         off = R.lerp(prev, off, R.prog(t, e, 0.3, R.ease.outCubic));
       }
-      list.style.transform = `translateY(${-off}px)`;
+      list.style.transform = R.ty(-off);
     };
   },
 });

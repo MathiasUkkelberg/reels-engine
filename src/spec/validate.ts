@@ -103,9 +103,10 @@ export function specWarnings(spec: Spec): string[] {
   const texts = beatTexts(spec);
   tl.beats.forEach((b, i) => {
     const chars = texts[i]?.length ?? 0;
-    // ~17 characters/second is a comfortable reading speed for subtitles; give 0.4s to notice the change.
-    const needed = chars / 17 + 0.4;
-    if (chars > 0 && b.dur < needed * 0.8) {
+    // ~20 characters/second is a brisk but comfortable reading speed for short on-screen lines,
+    // plus 0.3s to notice the change. Earlier beats stay on screen, so a little under is fine.
+    const needed = chars / 20 + 0.3;
+    if (chars > 0 && b.dur < needed * 0.75) {
       warnings.push(
         `beat ${i + 1} gets ${b.dur.toFixed(1)}s for ${chars} characters (needs ~${needed.toFixed(1)}s). Increase duration_s or cut text.`,
       );

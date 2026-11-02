@@ -101,9 +101,16 @@
   /** Apply a standard "appear" state: fade + rise + slight scale. p in [0,1]. */
   R.appear = (el, p, { dy = 40, scale = 0.96, dx = 0 } = {}) => {
     el.style.opacity = String(R.clamp(p * 1.4));
+    // At rest: no transform at all, so text is rasterised exactly like a fresh page (deterministic frames).
+    if (p >= 1) {
+      el.style.transform = 'none';
+      return;
+    }
     const s = R.lerp(scale, 1, p);
     el.style.transform = `translate(${R.lerp(dx, 0, p)}px, ${R.lerp(dy, 0, p)}px) scale(${s})`;
   };
+  /** translateY snapped to whole pixels (fractional offsets make static text shimmer between frames). */
+  R.ty = (y) => (Math.abs(y) < 0.5 ? 'none' : `translateY(${Math.round(y)}px)`);
   R.show = (el, on) => (el.style.visibility = on ? 'visible' : 'hidden');
 
   // ---------- background ----------
@@ -235,8 +242,18 @@
       if (!visible(el)) continue;
       const range = document.createRange();
       range.selectNodeContents(node);
-      const r = range.getBoundingClientRect();
-      if (r.width < 2 || r.height < 2) continue;
+      const b = range.getBoundingClientRect();
+      // Visible part only: intersect with every clipping ancestor (overflow hidden/clip).
+      const r = { left: b.left, top: b.top, right: b.right, bottom: b.bottom };
+      for (let e = el; e && e.id !== 'stage'; e = e.parentElement) {
+        const ov = getComputedStyle(e).overflow;
+        if (ov.includes('hidden') || ov.includes('clip')) {
+          const c = e.getBoundingClientRect();
+          r.left = Math.max(r.left, c.left); r.top = Math.max(r.top, c.top);
+          r.right = Math.min(r.right, c.right); r.bottom = Math.min(r.bottom, c.bottom);
+        }
+      }
+      if (r.right - r.left < 2 || r.bottom - r.top < 2) continue;
       if (r.right < 0 || r.left > W || r.bottom < 0 || r.top > H) continue;
       const fs = parseFloat(getComputedStyle(el).fontSize);
       if (!el.closest('.small-ok')) minFont = Math.min(minFont, fs);

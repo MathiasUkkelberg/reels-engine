@@ -77,10 +77,16 @@ export const CaptionSchema = z.object({
   selected: z.number().int().min(0).default(0),
 });
 
+export const LEARNABLE_FEATURES = [
+  'template', 'hook_type', 'topic', 'humor_style', 'text_density', 'length', 'loop', 'has_twist', 'post_slot', 'weekday', 'series',
+] as const;
+
 export const ExperimentSchema = z.object({
   arm: z.enum(['exploit', 'explore']).default('exploit'),
   /** For explore ideas: the testable hypothesis, e.g. "stat reveals get more shares than chats". */
   hypothesis: z.string().max(200).optional(),
+  /** What the experiment varies, so the learning loop can judge the hypothesis (e.g. template = stat). */
+  test: z.object({ feature: z.enum(LEARNABLE_FEATURES), value: z.string().min(1).max(40) }).optional(),
   hypothesis_id: z.string().max(80).optional(),
   /** For exploit ideas: the past reel or format this one builds on. */
   based_on: z.string().max(120).optional(),

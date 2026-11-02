@@ -45,7 +45,7 @@ Reel.register('nobody', {
       const evt = beats.map((b) => b.at).filter((x) => x <= t).pop();
       let off = offsetAt(t);
       if (evt !== undefined) off = R.lerp(offsetAt(evt - 1e-3), off, R.prog(t, evt, 0.3));
-      col.style.transform = `translateY(${-off}px)`;
+      col.style.transform = R.ty(-off);
     };
   },
 });

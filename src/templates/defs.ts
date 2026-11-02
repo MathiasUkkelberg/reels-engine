@@ -283,7 +283,7 @@ export const TEMPLATES = {
     description:
       'The "Nobody: / Absolutely no one: / <actor>:" meme. Setup lines are silent beats, then the actor line, then the punchline lines appear one by one. style=markdown renders the punchline as an over-formatted AI answer (headers, bullets); style=terminal renders it as console output.',
     data: nobody,
-    beats: (d) => last([...d.setup.map(() => 0.55), 0.8, ...d.punchline.map((p) => readWeight(p))], 1.4),
+    beats: (d) => last([...d.setup.map((s) => Math.max(0.55, readWeight(s) * 0.8)), 0.8, ...d.punchline.map((p) => readWeight(p))], 1.4),
     text: (d) => [...d.setup, d.actor, ...d.punchline],
   }),
   notifications: def({

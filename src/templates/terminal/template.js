@@ -64,7 +64,7 @@ Reel.register('terminal', {
       const evt = lines.map((L) => L.b.at).filter((x) => x <= t).pop();
       let off = offsetAt(t);
       if (evt !== undefined) off = R.lerp(offsetAt(evt - 1e-3), off, R.prog(t, evt, 0.25));
-      list.style.transform = `translateY(${-off}px)`;
+      list.style.transform = R.ty(-off);
       // Chaos: shake + red vignette ramping up toward the end.
       const chaos = data.chaos === 'rising' ? R.ease.inQuad(R.clamp((t - chaosStart) / Math.max(0.1, chaosEnd - chaosStart))) : 0;
       const amp = 14 * chaos;

@@ -2,7 +2,7 @@
   "id": "terminal-make-tests-pass",
   "template": "terminal",
   "hook": "told my coding agent *\"make the tests pass\"*",
-  "duration_s": 15,
+  "duration_s": 16,
   "loop": false,
   "accent": "green",
   "data": {

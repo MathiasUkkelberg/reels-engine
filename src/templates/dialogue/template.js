@@ -59,7 +59,7 @@ Reel.register('dialogue', {
       const evt = bubs.map((x) => x.beat.at).filter((a) => a <= t).pop();
       let off = offAt(t);
       if (evt !== undefined) off = R.lerp(offAt(evt - 1e-3), off, R.prog(t, evt, 0.3));
-      list.style.transform = `translateY(${-off}px)`;
+      list.style.transform = R.ty(-off);
       // Moods: latest mood set by each character's most recent line.
       people.forEach((p, i) => {
         let mood = 'neutral', lastAt = -1;

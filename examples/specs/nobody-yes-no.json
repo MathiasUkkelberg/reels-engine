@@ -2,7 +2,7 @@
   "id": "nobody-yes-no",
   "template": "nobody",
   "hook": "asking AI a *yes or no* question",
-  "duration_s": 12,
+  "duration_s": 13,
   "loop": true,
   "accent": "purple",
   "data": {
